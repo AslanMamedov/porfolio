@@ -1,7 +1,19 @@
 {
 	"home": "eses",
 	"works": "isler",
-	"about": "menim haqqimda",
+	"about": "menim-haqqimda",
 	"contacts": "contaclar",
-	"name": "Aslan"
+	"name": "Aslan",
+	"footer-description": "Frontend ve Backend developer",
+	"copyright": "Copyright 2023. Yaradicisi Aslan. Desayin made by Elias from Figma design",
+	"footer-social-media": "Social seyfeler",
+	"main-subtitle": "Texnologiyaların yaradıcılıqla qovuşduğu cavabdeh veb-saytlar hazırlayır",
+	"main-link-button": "Mennen elege!!",
+	"is": "",
+	"developer": "inkişaf etdirici",
+	"and": "və",
+	"main-image-portfolio": "Hazırda  üzərində işləyir",
+	"portfolio": "Portfolio",
+	"quote": "Yuxuları gerçəkləşdirmənin yeganə yolu oyanmaqdır",
+	"quote-author": " Bernard Shaw"
 }

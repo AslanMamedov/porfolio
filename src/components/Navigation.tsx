@@ -22,15 +22,6 @@ const StyledLink = styled.li`
 	&:last-child {
 		margin-right: 32px;
 	}
-	/* a {
-		&:hover {
-			color: ${(props) => props.theme.color.white};
-		}
-	} */
-	/* a {
-		cursor: pointer;
-		color: ${(props) => props.theme.color.gray};
-	} */
 `;
 
 const StyledHash = styled.span`

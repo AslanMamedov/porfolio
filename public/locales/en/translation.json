@@ -3,5 +3,17 @@
 	"works": "works",
 	"about": "about-me",
 	"contacts": "contacts",
-	"name": "Aslan"
+	"name": "Aslan",
+	"footer-description": "Frontend and Backend developer",
+	"copyright": "Copyright 2023. Made by Aslan. Design made by Elias from Figma design",
+	"footer-social-media": "Media",
+	"is": "is a",
+	"main-subtitle": "He crafts responsive websites where technologies meet creativity",
+	"main-link-button": "Contact me!!",
+	"developer": "developer",
+	"and": "and",
+	"main-image-portfolio": "Currently working on",
+	"portfolio": "Portfolio",
+	"quote": "With great power comes great electricity bill",
+	"quote-author": " Dr. Who"
 }

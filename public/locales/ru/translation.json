@@ -1,7 +1,19 @@
 {
 	"home": "главная",
 	"works": "работы",
-	"about": "обо мне",
+	"about": "обо-мне",
 	"contacts": "контакты",
-	"name": "Аслан"
+	"name": "Аслан",
+	"footer-description": "Frontend и Backend разработчик",
+	"copyright": "Copyright 2023. Сделан был Асланом. Дизайн сделан Elias из Figma design",
+	"footer-social-media": "Социальные сети",
+	"main-subtitle": "Он создает адаптивные веб-сайты, где технологии сочетаются с творчеством.",
+	"main-link-button": "Связаться со мной!!",
+	"is": "",
+	"developer": "разработчик",
+	"and": "и",
+	"main-image-portfolio": "Сейчас работает над ",
+	"portfolio": "Портфолио",
+	"quote": "Никогда не ошибается тот, кто ничего не делает",
+	"quote-author": " Теодор Рузвельт"
 }

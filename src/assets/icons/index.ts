@@ -14,4 +14,10 @@ export { ReactComponent as IconEmail } from './socialMedia/email.svg';
 // Logo
 
 export { ReactComponent as IconLogo } from './logo.svg';
+
+// Figure
+export { ReactComponent as IconDots } from './dots.svg';
+export { ReactComponent as IconInlineDots } from './inline-dots.svg';
+export { ReactComponent as IconFigure } from './figure.svg';
+
 export type IconType = React.FunctionComponent<React.SVGProps<SVGSVGElement>>;

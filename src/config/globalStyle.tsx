@@ -34,8 +34,23 @@ aside {
 #root {
 	height : 100%;
 }
+body::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #ABB2BF;
+}
+
+body::-webkit-scrollbar {
+	width: 0px;
+	background-color: #ABB2BF;
+}
+
+body::-webkit-scrollbar-thumb {
+	background-color:#282C33;
+}
+
 html,
 body {
+	
 	height: 100%;
 	width: 100%;
 

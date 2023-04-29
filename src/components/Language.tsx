@@ -19,6 +19,7 @@ interface ILangList {
 const StyledLangList = styled.ul`
 	position: absolute;
 	top: 24px;
+	z-index: 11111111111;
 	border: 1px solid ${(props) => props.theme.color.grayLight};
 
 	background-color: ${(props) => props.theme.color.main};
@@ -41,6 +42,7 @@ const StyledLangItem = styled.span`
 	width: 100%;
 	height: 100%;
 	display: block;
+	font-weight: 400;
 	&:first-child {
 		padding: 8px 8px;
 	}
@@ -112,7 +114,16 @@ export const Language: FC = () => {
 			{show && (
 				<StyledLangList className="lang-container__lang-list">
 					{langList.map((item: ILangList, index) => (
-						<StyledLang className="lang-container__lang-item" onClick={onSelectedHandler(item)} key={index}>
+						<StyledLang
+							style={{
+								backgroundColor: `${item.title === lang ? '#e0e0e0' : null}`,
+								color: `${item.title === lang ? '#282C33' : null}`,
+								fontWeight: 400,
+							}}
+							className="lang-container__lang-item"
+							onClick={onSelectedHandler(item)}
+							key={index}
+						>
 							<StyledLangItem className="lang-container__lang-text">{item.title}</StyledLangItem>
 						</StyledLang>
 					))}
