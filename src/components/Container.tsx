@@ -6,6 +6,7 @@ const StyledContainer = styled.div`
 	width: 100%;
 	margin: 0 auto;
 	height: 100%;
+	
 `;
 
 interface IContainerProps {

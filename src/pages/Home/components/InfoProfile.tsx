@@ -2,17 +2,24 @@ import { Anchor } from 'components/index';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 const StyledLefSide = styled.div`
-	width: 538px;
+	max-width: 538px;
 	margin-top: 74px;
+	@media (max-width: 1144px) {
+		margin-top: 34px;
+	}
 `;
 const StyledInfoTitle = styled.div`
 	font-weight: 600;
 	font-size: 32px;
 	line-height: 42px;
+	@media (max-width: 1144px) {
+		text-align: center;
+	}
 `;
 
 const StyledMarkerText = styled.p`
 	display: inline;
+
 	color: ${(props) => props.theme.color.primary};
 `;
 
@@ -21,12 +28,18 @@ const StyledSubTitle = styled.h2`
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 25px;
-	width: 508px;
+	max-width: 508px;
+	@media (max-width: 1144px) {
+		text-align: center;
+	}
 	color: ${(props) => props.theme.color.gray};
 `;
 
 const StyledAnchor = styled.div`
 	margin-top: 24px;
+	@media (max-width: 1144px) {
+		display: none;
+	}
 `;
 
 export const InfoProfile = () => {

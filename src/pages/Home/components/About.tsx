@@ -18,6 +18,9 @@ const StyledAboutContainer = styled.section`
 		left: -276px;
 		top: 135px;
 	}
+	@media (max-width: 1144px) {
+		margin-top: 44px;
+	}
 `;
 
 const StyledAboutLeftSide = styled.div`
@@ -29,6 +32,9 @@ const StyledAboutRightSide = styled.div`
 	width: 343px;
 	height: 508px;
 	position: relative;
+	@media (max-width: 900px) {
+		display: none;
+	}
 
 	&::before {
 		content: '';
@@ -102,6 +108,17 @@ const StyledDots = styled.span`
 	position: absolute;
 	right: -184px;
 	top: 308px;
+
+	@media (max-width: 1144px) {
+		display: none;
+	}
+
+	@media (max-width: 1528px) {
+		display: none;
+	}
+	@media (max-width: 1233px) {
+		display: none;
+	}
 `;
 
 export const About = () => {

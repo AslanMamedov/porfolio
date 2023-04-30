@@ -5,6 +5,9 @@ const StyledContactCardContainer = styled.div`
 	width: 204px;
 	padding: 16px;
 	border: 1px solid ${(props) => props.theme.color.gray};
+	@media (max-width: 1144px) {
+		margin-top: 12px;
+	}
 `;
 
 const StyledTitle = styled.span`

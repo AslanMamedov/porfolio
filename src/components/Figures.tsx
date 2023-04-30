@@ -4,12 +4,11 @@ import styled from 'styled-components';
 const StyledFiguresTop = styled.div`
 	display: flex;
 	justify-content: space-between;
+	
 `;
 const StyledFiguresBottom = styled.div`
 	display: flex;
 	justify-content: space-between;
-	/* align-items: center; */
-	/* margin-top: 42px; */
 `;
 
 const StyledFiguresBoxBig = styled.span`

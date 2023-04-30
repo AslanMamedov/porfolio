@@ -27,15 +27,7 @@ const StyledWrapper = styled.div`
 	flex-direction: column;
 	background-color: ${BackgroundColor};
 	color: ${TextColor};
-	&::after {
-		content: '';
-		width: 2px;
-		height: 191px;
-		background-color: ${(props) => props.theme.color.gray};
-		position: absolute;
-		top: 0;
-		left: 32px;
-	}
+
 `;
 
 export const Layout: FC = () => {

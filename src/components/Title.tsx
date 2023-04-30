@@ -19,6 +19,9 @@ interface StyledLine {
 
 const StyledLine = styled.span<StyledLine>`
 	width: ${(props) => props.lineWidth};
+	@media (max-width: 1144px) {
+		width: 0
+	}
 	height: 1px;
 	margin-left: 16px;
 	background-color: ${(props) => props.theme.color.primary};

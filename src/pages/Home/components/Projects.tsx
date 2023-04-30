@@ -17,6 +17,18 @@ const StyledProjectsContainer = styled.section`
 		right: -400px;
 		top: 50%;
 		border: 1px solid ${(props) => props.theme.color.gray};
+		@media (max-width: 1144px) {
+			display: none;
+		}
+		@media (max-width: 1528px) {
+			display: none;
+		}
+		@media (max-width: 1669px) {
+			right: -200px;
+		}
+		@media (max-width: 1233px) {
+			display: none;
+		}
 	}
 `;
 
@@ -52,6 +64,9 @@ const StyledFigureIcon = styled.span`
 	svg {
 		width: 68px;
 		height: 68px;
+	}
+	@media (max-width: 1144px) {
+		display: none;
 	}
 `;
 

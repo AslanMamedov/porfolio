@@ -10,6 +10,12 @@ const StyledLanguage = styled.div`
 	position: relative;
 	font-size: 16px;
 	font-weight: 600;
+	@media (max-width: 854px) {
+		font-size: 32px;
+		flex: 1 1 auto;
+		margin-top: 32px;
+	}
+	z-index: 11111111111111111111111;
 `;
 
 interface ILangList {
@@ -17,12 +23,16 @@ interface ILangList {
 }
 
 const StyledLangList = styled.ul`
-	position: absolute;
-	top: 24px;
-	z-index: 11111111111;
+	position: fixed;
+	top: 54px;
+	z-index: 111111;
 	border: 1px solid ${(props) => props.theme.color.grayLight};
 
 	background-color: ${(props) => props.theme.color.main};
+
+	@media (max-width: 854px) {
+		top: 414px;
+	}
 `;
 
 const StyledLang = styled.li`
@@ -61,10 +71,18 @@ const StyledArrow = styled.span<IArrow>`
 		width: 10px;
 		height: 10px;
 		margin-left: 4px;
+		@media (max-width: 854px) {
+			width: 15px;
+			height: 15px;
+		}
 	}
 `;
 
-export const Language: FC = () => {
+interface ILanguageProps {
+	setShowMenu: (value: boolean) => void;
+}
+
+export const Language: FC<ILanguageProps> = ({ setShowMenu }) => {
 	const { i18n } = useTranslation();
 	const [lang, setLang] = useState<string>(localStorage?.getItem('i18nextLng') || 'en');
 	const [show, setShow] = useState<boolean>(false);
@@ -86,6 +104,7 @@ export const Language: FC = () => {
 	const onSelectedHandler = (item: ILangList) => () => {
 		setLang(item.title);
 		setShow(true);
+		setShowMenu(false);
 		i18n.changeLanguage(item.title);
 	};
 

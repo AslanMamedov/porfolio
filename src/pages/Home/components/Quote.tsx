@@ -17,6 +17,19 @@ const StyledQuote = styled.section`
 		border: 1px solid ${(props) => props.theme.color.gray};
 
 		position: absolute;
+
+		@media (max-width: 1528px) {
+			right: -107px;
+		}
+		@media (max-width: 1233px) {
+			right: -47px;
+		}
+		@media (max-width: 1144px) {
+			display: none;
+		}
+	}
+	@media (max-width: 1144px) {
+		margin-top: 44px;
 	}
 `;
 

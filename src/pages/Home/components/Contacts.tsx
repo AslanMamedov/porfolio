@@ -6,12 +6,21 @@ const StyledContactsContainer = styled.section`
 	margin-top: 112px;
 	margin-bottom: 145px;
 	position: relative;
+	@media (max-width: 1144px) {
+		margin-top: 40px;
+		margin-bottom: 45px;
+	}
 `;
 
 const StyledContactContent = styled.div`
 	margin-top: 45px;
 	display: flex;
 	justify-content: space-between;
+	@media (max-width: 755px) {
+		margin-top: 20px;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+	}
 `;
 
 const StyledContactText = styled.h3`

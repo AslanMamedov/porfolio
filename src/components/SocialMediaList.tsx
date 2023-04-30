@@ -2,9 +2,13 @@ import { IconGithub, IconLinkedin, IconTelegram, IconTwitter } from 'icons/index
 import styled from 'styled-components';
 
 const StyledSocialMediaLists = styled.div`
-	position: absolute;
+	position: fixed;
 	top: 205px;
 	left: 18px;
+
+	@media (max-width: 1144px) {
+		display: none;
+	}
 `;
 
 const StyledSocialMediaListContainer = styled.ul``;

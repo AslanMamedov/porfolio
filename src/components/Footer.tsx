@@ -3,10 +3,9 @@ import { Container } from './Container';
 import { Logo } from './Logo';
 import { IconDiscord, IconGithub, IconTelegram } from 'icons/index';
 import { useTranslation } from 'react-i18next';
-import { useEffect } from 'react';
+
 
 const StyledFooter = styled.footer`
-	height: 208px;
 	border-top: 1px solid ${(props) => props.theme.color.gray};
 	padding: 32px 0;
 	position: relative;
@@ -17,6 +16,10 @@ const StyledDots = styled.ul`
 	position: absolute;
 	right: 0;
 	bottom: 19px;
+
+	@media (max-width: 1144px) {
+		display: none;
+	}
 `;
 
 const StyledDotsList = styled.li`
@@ -33,14 +36,23 @@ const StyledDotsList = styled.li`
 const StyledSocialMediaTitle = styled.h3`
 	font-weight: 500;
 	font-size: 24px;
+	@media (max-width: 1144px) {
+		margin-top: 12px;
+		text-align: center;
+	}
 `;
 
 const StyledCopyright = styled.h3`
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 21px;
+	margin-top: 48px;
 	text-align: center;
 	color: ${(props) => props.theme.color.gray};
+	@media (max-width: 1144px) {
+		word-wrap: break-word;
+		margin-top: 12px;
+	}
 `;
 
 const StyledSocialMediaList = styled.ul`
@@ -82,6 +94,10 @@ const StyledSocialMediaContainer = styled.div``;
 const StyledTopContainer = styled.div`
 	display: flex;
 	justify-content: space-between;
+	@media (max-width: 500px) {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
 `;
 
 const StyledLogoContainer = styled.div`
@@ -106,6 +122,9 @@ const StyledDescription = styled.h3`
 	font-size: 16px;
 	line-height: 21px;
 	margin-top: 16px;
+	@media (max-width: 479px) {
+		text-align: center;
+	}
 `;
 
 const StyledMain = styled.div`
@@ -113,6 +132,7 @@ const StyledMain = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	padding: 0 15px;
 `;
 
 export const Footer = () => {

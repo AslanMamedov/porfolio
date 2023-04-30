@@ -5,6 +5,9 @@ import styled from 'styled-components';
 
 const StyledSlillsContainer = styled.section`
 	margin-top: 106px;
+	@media (max-width: 1144px) {
+		margin-top: 44px;
+	}
 `;
 
 const StyledSlillsContent = styled.div`
@@ -13,6 +16,9 @@ const StyledSlillsContent = styled.div`
 	justify-content: space-between;
 	padding-left: 32px;
 	gap: 59px;
+	@media (max-width: 1144px) {
+		padding-left: 0;
+	}
 `;
 
 const StyledSlillsLeftSide = styled.div`
@@ -21,6 +27,9 @@ const StyledSlillsLeftSide = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	@media (max-width: 1144px) {
+		display: none;
+	}
 `;
 const StyledSlillsRightSide = styled.div`
 	width: 584px;
@@ -30,12 +39,30 @@ const StyledSlillsRightSide = styled.div`
 	align-items: baseline;
 	justify-content: flex-end;
 	align-content: flex-end;
+	@media (max-width: 1144px) {
+		justify-content: center;
+		width: 100%;
+	}
+	@media (max-width: 370px) {
+		flex-direction: column;
+		justify-content: flex-start;
+		align-content: flex-start;
+	}
 `;
 
 const StyledSkillCardGap = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
+	@media (max-width: 1144px) {
+		flex-direction: row;
+	}
+	@media (max-width: 370px) {
+		flex-direction: column;
+
+		justify-content: flex-start;
+		align-content: flex-start;
+	}
 `;
 
 export const Skills = () => {

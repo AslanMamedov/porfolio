@@ -11,6 +11,10 @@ const StyledRightSide = styled.div`
 	flex-direction: column;
 
 	align-items: center;
+
+	@media (max-width: 1144px) {
+		margin-top: 24px;
+	}
 `;
 
 const StyledImage = styled.img`
@@ -28,19 +32,33 @@ const StyledIconFigure = styled.span`
 	z-index: 0;
 	top: 84px;
 	left: -12px;
+	@media (max-width: 1144px) {
+		top: 84px;
+		left: 6px;
+	}
 	svg {
 		width: 155px;
 		height: 155px;
+
+		@media (max-width: 1144px) {
+			width: 104px;
+			height: 104px;
+		}
 	}
 `;
 const StyledIconDots = styled.span`
 	position: absolute;
-	z-index: 11111111;
+	z-index: 111111;
 	bottom: 56px;
 	right: 16px;
 	svg {
 		width: 84px;
 		height: 84px;
+
+		@media (max-width: 1144px) {
+			width: 56px;
+			height: 56px;
+		}
 	}
 `;
 
@@ -48,11 +66,15 @@ const StyledImageContainer = styled.div`
 	position: relative;
 	width: 457px;
 	height: 386px;
+	@media (max-width: 1144px) {
+		width: 360px;
+		height: 304px;
+	}
 `;
 
 const StyledPortfolio = styled.div`
 	width: 402px;
-	height: 37px;
+	/* height: 37px; */
 	margin-right: 19px;
 	border: 1px solid ${(props) => props.theme.color.gray};
 	padding: 8px 34px;
@@ -60,6 +82,11 @@ const StyledPortfolio = styled.div`
 	font-weight: 500;
 	font-size: 16px;
 	line-height: 21px;
+	display: flex;
+	flex-wrap: wrap;
+	span {
+		margin-right: 4px;
+	}
 	&::after {
 		content: '';
 		width: 16px;
@@ -68,8 +95,16 @@ const StyledPortfolio = styled.div`
 		position: absolute;
 		left: 8px;
 		top: 50%;
+
 		transform: translateY(-50%);
 		background-color: ${(props) => props.theme.color.primary};
+	}
+
+	@media (max-width: 1144px) {
+		margin-right: 0;
+		width: 354px;
+		padding: 8px 34px;
+		padding-right: 8px;
 	}
 `;
 
