@@ -107,9 +107,24 @@ const StyledBurgerMenuContainer = styled.div`
 	color: ${(props) => props.theme.color.white};
 `;
 
+const StyledUpButton = styled.button`
+	position: fixed;
+	right: 160px;
+	top: 500px;
+	padding: 15px;
+	transform: rotate(-90deg);
+	border: 1px solid ${(props) => props.theme.color.gray};
+	background-color: ${(props) => props.theme.color.main};
+	color: ${(props) => props.theme.color.white};
+	@media (max-width: 1454px) {
+		display: none;
+	}
+`;
+
 export const Navigation: FC = () => {
 	const { t } = useTranslation();
 	const location = useLocation();
+
 	const [showMenu, setShowMenu] = useState<boolean>(false);
 	const links = useMemo(() => {
 		return [
@@ -132,27 +147,24 @@ export const Navigation: FC = () => {
 		];
 	}, [t]);
 
-	// const [showButton, setShowButton] = useState<boolean>(false);
-	// useEffect(() => {
-	// 	const scrollProgress = () => {
-	// 		const scrollPx = document.documentElement.scrollTop;
-	// 		const winHeightPx = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-	// 		const scrolled = `${(scrollPx / winHeightPx) * 100}%`;
+	const [showButton, setShowButton] = useState<boolean>(false);
+	useEffect(() => {
+		const scrollProgress = () => {
+			const scrollPx = document.documentElement.scrollTop;
+			const winHeightPx = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+			// const scrolled = `${(scrollPx / winHeightPx) * 100}%`;
+			if (scrollPx > 100) {
+				setShowButton(true);
+			} else {
+				setShowButton(false);
+			}
+		};
+		window.addEventListener('scroll', scrollProgress);
+		return () => {
+			window.removeEventListener('scroll', scrollProgress);
+		};
+	}, [setShowButton]);
 
-	// 		console.log(scrollPx);
-	// 		if (scrollPx < 100) {
-	// 			setShowButton(true);
-	// 		} else {
-	// 			setShowButton(false);
-	// 		}
-	// 	};
-
-	// 	window.addEventListener('scroll', scrollProgress);
-
-	// 	return () => {
-	// 		window.removeEventListener('scroll', scrollProgress);
-	// 	};
-	// }, [setShowButton]);
 	useEffect(() => {
 		if (showMenu) {
 			document.body.style.overflowY = 'hidden';
@@ -174,6 +186,16 @@ export const Navigation: FC = () => {
 
 	return (
 		<StyledNav className="nav">
+			{showButton && (
+				<StyledUpButton
+					onClick={() => {
+						window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+					}}
+				>
+					{'~~>'}
+				</StyledUpButton>
+			)}
+
 			<Logo />
 			<StyledBurgerMenu onClick={() => setShowMenu((prevState) => !prevState)}>
 				{!showMenu ? (

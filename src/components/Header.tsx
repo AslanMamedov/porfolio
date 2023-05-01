@@ -1,11 +1,17 @@
 import styled from 'styled-components';
 import { Container } from './Container';
 import { Navigation } from './Navigation';
-const StyledHeader = styled.header`
+import { useScrollDirection } from 'hooks/index';
+
+interface IStyledHeaderProps {
+	scrollDirection: boolean | null;
+}
+
+const StyledHeader = styled.header<IStyledHeaderProps>`
 	padding: 0 15px;
 	overflow: hidden;
 	background-color: ${(props) => props.theme.color.main};
-	position: fixed;
+	position: ${(props) => props.scrollDirection && 'sticky'};
 	top: 0;
 	width: 100%;
 	height: 60px;
@@ -31,8 +37,10 @@ const StyledHeader = styled.header`
 `;
 
 export const Header = () => {
+	const scrollDirection = useScrollDirection();
+
 	return (
-		<StyledHeader className="header">
+		<StyledHeader className="header" scrollDirection={scrollDirection}>
 			<Container>
 				<Navigation />
 			</Container>
