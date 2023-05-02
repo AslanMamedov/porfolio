@@ -16,6 +16,7 @@ const StyledMiddle = styled.div`
 	border: 1px solid ${(props) => props.theme.color.gray};
 	border-left: none;
 	border-right: none;
+	border-top: none;
 	min-height: 37px;
 	padding: 8px;
 	color: ${(props) => props.theme.color.gray};
@@ -36,6 +37,7 @@ const StyledTopImage = styled.img`
 	width: 100%;
 	height: 201px;
 	object-fit: cover;
+	border-bottom: 1px solid ${(props) => props.theme.color.gray};
 `;
 
 const StyledButtonContainer = styled.div`
@@ -65,7 +67,7 @@ const StyledCardDescription = styled.p`
 `;
 
 interface PortfolioCardProps {
-	imgSrc: string;
+	imgSrc?: string;
 	tools: string[];
 	description: string;
 	title: string;
@@ -76,7 +78,7 @@ interface PortfolioCardProps {
 
 export const PortfolioCard: FC<PortfolioCardProps> = ({
 	description = '',
-	imgSrc = '',
+	imgSrc = undefined,
 	title = '',
 	tools = [],
 	linkLive = '',
@@ -85,9 +87,12 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({
 }) => {
 	return (
 		<StyledCardContainer>
-			<StyledTop>
-				<StyledTopImage src={imgSrc} alt={title} />
-			</StyledTop>
+			{imgSrc && (
+				<StyledTop>
+					<StyledTopImage src={imgSrc} alt={title} />
+				</StyledTop>
+			)}
+
 			{tools.length !== 0 && (
 				<StyledMiddle>
 					{!!tools && tools.map((tool, index) => <Fragment key={index}> {tool}</Fragment>)}

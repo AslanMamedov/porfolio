@@ -1,4 +1,5 @@
 export * from './SocialMediaList.tsx';
+export * from './NavigationTitle.tsx';
 export * from './ContactCard.tsx';
 export * from './Navigation.tsx';
 export * from './Container.tsx';

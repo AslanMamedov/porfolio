@@ -137,7 +137,7 @@ export const Navigation: FC = () => {
 				title: t('works'),
 			},
 			{
-				path: '/about',
+				path: '/about-me',
 				title: t('about'),
 			},
 			{
