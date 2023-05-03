@@ -1,48 +1,78 @@
-import styled from 'styled-components';
-import { Anchor } from '.';
 import { FC, Fragment } from 'react';
+import styled from 'styled-components';
+import { Anchor } from './Anchor';
+
+interface PortfolioCardProps {
+	imgSrc?: string;
+	tools: string[];
+	description: string;
+	title: string;
+	linkDemo: string;
+	linkCode?: string;
+}
+
+export const PortfolioCard: FC<PortfolioCardProps> = ({
+	description = '',
+	imgSrc = undefined,
+	title = '',
+	tools = [],
+	linkDemo = '',
+	linkCode = undefined,
+}) => {
+	return (
+		<StyledCardContainer>
+			{imgSrc && <StyledTopImage src={imgSrc} alt={title} />}
+			{!!tools.length && (
+				<StyledMiddle>
+					{tools.map((tool, index) => (
+						<Fragment key={index}> {tool}</Fragment>
+					))}
+				</StyledMiddle>
+			)}
+			<StyledBottom>
+				{description && <StyledCardTitle>{description}</StyledCardTitle>}
+				{title && <StyledCardDescription>{title}</StyledCardDescription>}
+
+				<StyledButtonContainer>
+					<Anchor title="Live" to={linkDemo} type="primary" icon={'<~>'} variant="primary" />
+					{linkCode && (
+						<Anchor title="Cached" to={linkCode} type="lightgray" icon={'>'} variant="lightgray" />
+					)}
+				</StyledButtonContainer>
+			</StyledBottom>
+		</StyledCardContainer>
+	);
+};
 
 const StyledCardContainer = styled.div`
 	width: 331px;
 	border: 1px solid ${(props) => props.theme.color.gray};
-	/* min-height: 391px; */
-	/* display: flex;
-	flex-direction: column;
-	justify-content: space-between; */
 `;
 
-const StyledTop = styled.div``;
 const StyledMiddle = styled.div`
-	border: 1px solid ${(props) => props.theme.color.gray};
-	border-left: none;
-	border-right: none;
-	border-top: none;
-	min-height: 37px;
-	padding: 8px;
 	color: ${(props) => props.theme.color.gray};
 	width: 100%;
-	font-weight: 400;
+	padding: 8px;
 	font-size: 16px;
+	font-weight: 400;
+	min-height: 37px;
 	line-height: 21px;
-	/* flex: 1 1 auto; */
+	border-bottom: 1px solid ${(props) => props.theme.color.gray};
 `;
 const StyledBottom = styled.div`
 	padding: 16px;
-	/* flex: 1 1 auto; */
-	/* display: flex;
-	flex-direction: column; */
 `;
 
 const StyledTopImage = styled.img`
 	width: 100%;
 	height: 201px;
+	display: block;
 	object-fit: cover;
 	border-bottom: 1px solid ${(props) => props.theme.color.gray};
 `;
 
 const StyledButtonContainer = styled.div`
 	flex: 1 1 auto;
-	/* height: 100%; */
 	span {
 		&:first-child {
 			margin-right: 16px;
@@ -51,65 +81,17 @@ const StyledButtonContainer = styled.div`
 `;
 
 const StyledCardTitle = styled.h3`
-	font-weight: 500;
 	font-size: 24px;
+	font-weight: 500;
 	line-height: 31px;
 	margin-bottom: 16px;
 	word-wrap: break-word;
 `;
 const StyledCardDescription = styled.p`
-	font-weight: 400;
+	color: ${(props) => props.theme.color.gray};
 	font-size: 16px;
+	font-weight: 400;
 	line-height: 21px;
 	margin-bottom: 16px;
 	word-wrap: break-word;
-	color: ${(props) => props.theme.color.gray};
 `;
-
-interface PortfolioCardProps {
-	imgSrc?: string;
-	tools: string[];
-	description: string;
-	title: string;
-	linkLive: string;
-	linkGithub?: string;
-	linkType: boolean;
-}
-
-export const PortfolioCard: FC<PortfolioCardProps> = ({
-	description = '',
-	imgSrc = undefined,
-	title = '',
-	tools = [],
-	linkLive = '',
-	linkGithub = undefined,
-	linkType = false,
-}) => {
-	return (
-		<StyledCardContainer>
-			{imgSrc && (
-				<StyledTop>
-					<StyledTopImage src={imgSrc} alt={title} />
-				</StyledTop>
-			)}
-
-			{tools.length !== 0 && (
-				<StyledMiddle>
-					{!!tools && tools.map((tool, index) => <Fragment key={index}> {tool}</Fragment>)}
-				</StyledMiddle>
-			)}
-
-			<StyledBottom>
-				{description && <StyledCardTitle>{description}</StyledCardTitle>}
-				{title && <StyledCardDescription>{title}</StyledCardDescription>}
-
-				<StyledButtonContainer>
-					<Anchor title="Live" to={linkLive} type="primary" icon={'<~>'} linkType={linkType} />
-					{linkGithub && (
-						<Anchor title="Cached" to={linkGithub} type="lightgray" icon={'>'} linkType={linkType} />
-					)}
-				</StyledButtonContainer>
-			</StyledBottom>
-		</StyledCardContainer>
-	);
-};

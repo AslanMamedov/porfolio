@@ -1,36 +1,59 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Container } from './Container';
 import { Logo } from './Logo';
-import { IconDiscord, IconGithub, IconTelegram } from 'icons/index';
 import { useTranslation } from 'react-i18next';
+import { ISocialMedia, SocialLink } from '.';
+import { FC, memo } from 'react';
+import { DotsFigures } from './DotsFigures';
 
+interface FooterProps {
+	socialMedia: ISocialMedia[];
+}
+
+export const Footer: FC<FooterProps> = memo(({ socialMedia }) => {
+	const { t } = useTranslation();
+
+	return (
+		<StyledFooter className="footer">
+			<Container>
+				<StyledMain>
+					<StyledTopContainer>
+						<StyledLogoContainer>
+							<StyledLogo>
+								<Logo />
+								<StyledAnchor href="/">aslan94mamedov49@gmail.com</StyledAnchor>
+							</StyledLogo>
+							<StyledDescription>{t('footer-description')}</StyledDescription>
+						</StyledLogoContainer>
+						<StyledSocialMediaContainer>
+							<StyledSocialMediaTitle>{t('footer-social-media')}</StyledSocialMediaTitle>
+							<StyledSocialMediaList>
+								{socialMedia.map(({ icon, href }, index) => (
+									<StyledSocialMediaItem key={index} className="social-media__item">
+										<SocialLink icon={icon} href={href} target="_blank" />
+									</StyledSocialMediaItem>
+								))}
+							</StyledSocialMediaList>
+						</StyledSocialMediaContainer>
+					</StyledTopContainer>
+					<StyledCopyright>&#169; {t('copyright')}</StyledCopyright>
+				</StyledMain>
+			</Container>
+			<DotsFigures />
+		</StyledFooter>
+	);
+});
+
+const StyledFonts = css`
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 21px;
+`;
 
 const StyledFooter = styled.footer`
 	border-top: 1px solid ${(props) => props.theme.color.gray};
 	padding: 32px 0;
 	position: relative;
-`;
-
-const StyledDots = styled.ul`
-	display: flex;
-	position: absolute;
-	right: 0;
-	bottom: 19px;
-
-	@media (max-width: 1144px) {
-		display: none;
-	}
-`;
-
-const StyledDotsList = styled.li`
-	width: 4px;
-	height: 4px;
-	border-radius: 100%;
-	background-color: ${(props) => props.theme.color.gray};
-
-	&:not(:first-child) {
-		margin-left: 21px;
-	}
 `;
 
 const StyledSocialMediaTitle = styled.h3`
@@ -43,9 +66,7 @@ const StyledSocialMediaTitle = styled.h3`
 `;
 
 const StyledCopyright = styled.h3`
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 21px;
+	${StyledFonts}
 	margin-top: 48px;
 	text-align: center;
 	color: ${(props) => props.theme.color.gray};
@@ -66,121 +87,41 @@ const StyledSocialMediaItem = styled.li`
 	}
 `;
 
-const StyledSocialMediaLink = styled.a`
-	svg {
-		width: 32px;
-		height: 32px;
-
-		fill: ${(props) => props.theme.color.gray};
-		&:hover {
-			circle {
-				stroke: ${(props) => props.theme.color.white};
-				path {
-					stroke: ${(props) => props.theme.color.white};
-					fill: ${(props) => props.theme.color.white};
-				}
-				fill: ${(props) => props.theme.color.white};
-			}
-			path {
-				stroke: ${(props) => props.theme.color.white};
-			}
-			fill: ${(props) => props.theme.color.white};
-		}
-	}
-`;
-
 const StyledSocialMediaContainer = styled.div``;
 
-const StyledTopContainer = styled.div`
+const StyledLogo = styled(StyledSocialMediaContainer)`
 	display: flex;
+`;
+
+const StyledTopContainer = styled(StyledLogo)`
 	justify-content: space-between;
-	@media (max-width: 500px) {
+	@media (max-width: 508px) {
 		flex-wrap: wrap;
 		justify-content: center;
 	}
 `;
 
-const StyledLogoContainer = styled.div`
+const StyledLogoContainer = styled(StyledLogo)`
 	display: flex;
 	flex-direction: column;
 `;
 
-const StyledLogo = styled.div`
-	display: flex;
+const StyledMain = styled(StyledLogoContainer)`
+	height: 100%;
+	justify-content: space-between;
+	padding: 0 15px;
 `;
 
 const StyledAnchor = styled.a`
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 21px;
+	${StyledFonts}
 	margin-left: 24px;
 	color: ${(props) => props.theme.color.gray};
 `;
 
 const StyledDescription = styled.h3`
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 21px;
+	${StyledFonts}
 	margin-top: 16px;
 	@media (max-width: 479px) {
 		text-align: center;
 	}
 `;
-
-const StyledMain = styled.div`
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	padding: 0 15px;
-`;
-
-export const Footer = () => {
-	const { t } = useTranslation();
-
-	return (
-		<StyledFooter className="footer">
-			<Container>
-				<StyledMain>
-					<StyledTopContainer>
-						<StyledLogoContainer>
-							<StyledLogo>
-								<Logo />
-								<StyledAnchor href="/">aslan94mamedov49@gmail.com</StyledAnchor>
-							</StyledLogo>
-
-							<StyledDescription>{t('footer-description')}</StyledDescription>
-						</StyledLogoContainer>
-
-						<StyledSocialMediaContainer>
-							<StyledSocialMediaTitle>{t('footer-social-media')}</StyledSocialMediaTitle>
-							<StyledSocialMediaList>
-								<StyledSocialMediaItem>
-									<StyledSocialMediaLink href="">
-										<IconGithub />
-									</StyledSocialMediaLink>
-								</StyledSocialMediaItem>
-								<StyledSocialMediaItem>
-									<StyledSocialMediaLink href="">
-										<IconTelegram />
-									</StyledSocialMediaLink>
-								</StyledSocialMediaItem>
-								<StyledSocialMediaItem>
-									<StyledSocialMediaLink href="">
-										<IconDiscord />
-									</StyledSocialMediaLink>
-								</StyledSocialMediaItem>
-							</StyledSocialMediaList>
-						</StyledSocialMediaContainer>
-					</StyledTopContainer>
-					<StyledCopyright>&#169; {t('copyright')}</StyledCopyright>
-				</StyledMain>
-			</Container>
-			<StyledDots>
-				<StyledDotsList />
-				<StyledDotsList />
-				<StyledDotsList />
-			</StyledDots>
-		</StyledFooter>
-	);
-};

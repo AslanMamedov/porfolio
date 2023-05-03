@@ -1,6 +1,24 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
+export interface InfoCardProps {
+	title: string;
+	description: string[];
+}
+export const InfoCard: FC<InfoCardProps> = ({ description, title }) => {
+	return (
+		<StyledInfoCardContainer>
+			<StyledInfoTitle>{title}</StyledInfoTitle>
+			<StyledInfoDescription>
+				{!!description.length &&
+					description.map((desc, index) => (
+						<StyledInfoDescriptionLists key={index}> {desc}</StyledInfoDescriptionLists>
+					))}
+			</StyledInfoDescription>
+		</StyledInfoCardContainer>
+	);
+};
+
 const StyledInfoCardContainer = styled.div`
 	width: 178px;
 	align-self: flex-start;
@@ -15,10 +33,7 @@ const StyledInfoTitle = styled.h3`
 `;
 
 const StyledInfoDescription = styled.div`
-	border: 1px solid ${(props) => props.theme.color.gray};
-	border-left: none;
-	border-right: none;
-	border-bottom: none;
+	border-top: 1px solid ${(props) => props.theme.color.gray};
 	padding: 8px;
 	word-break: break-all;
 	font-weight: 400;
@@ -27,23 +42,4 @@ const StyledInfoDescription = styled.div`
 	line-height: 21px;
 `;
 
-interface InfoCardProps {
-	title: string;
-	description: string[];
-}
-
 const StyledInfoDescriptionLists = styled.span``;
-
-export const InfoCard: FC<InfoCardProps> = ({ description, title }) => {
-	return (
-		<StyledInfoCardContainer>
-			<StyledInfoTitle>{title}</StyledInfoTitle>
-			<StyledInfoDescription>
-				{!!description.length &&
-					description.map((desc, index) => (
-						<StyledInfoDescriptionLists key={index}> {desc}</StyledInfoDescriptionLists>
-					))}
-			</StyledInfoDescription>
-		</StyledInfoCardContainer>
-	);
-};

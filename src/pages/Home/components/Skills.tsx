@@ -3,6 +3,30 @@ import { Figures, Title } from 'components/index';
 
 import styled from 'styled-components';
 
+export const Skills = () => {
+	return (
+		<StyledSlillsContainer>
+			<Title text="skills" lineWidth="239px" />
+			<StyledSlillsContent>
+				<StyledSlillsLeftSide>
+					<Figures />
+				</StyledSlillsLeftSide>
+				<StyledSlillsRightSide>
+					<InfoCard title={'Language'} description={['JavaScript', 'TypeScript']} />
+					<InfoCard title={'Databases'} description={['PostgreSQL', 'Mongo']} />
+					<InfoCard title={'Other'} description={['HTML', 'CSS', 'EJS', 'SCSS', 'REST']} />
+					<InfoCard title={'Tools'} description={['Figma', 'Git']} />
+					<InfoCard title={'Frameworks'} description={['React', 'Express.js']} />
+					{/* <StyledSkillCardGap>
+					</StyledSkillCardGap>
+					<StyledSkillCardGap>
+					</StyledSkillCardGap> */}
+				</StyledSlillsRightSide>
+			</StyledSlillsContent>
+		</StyledSlillsContainer>
+	);
+};
+
 const StyledSlillsContainer = styled.section`
 	margin-top: 106px;
 	@media (max-width: 1144px) {
@@ -36,8 +60,8 @@ const StyledSlillsRightSide = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	gap: 16px;
-	align-items: baseline;
-	justify-content: flex-end;
+	-webkit-box-pack: end;
+	place-content: flex-end;
 	align-content: flex-end;
 	@media (max-width: 1144px) {
 		justify-content: center;
@@ -49,48 +73,3 @@ const StyledSlillsRightSide = styled.div`
 		align-content: flex-start;
 	}
 `;
-
-const StyledSkillCardGap = styled.div`
-	display: flex;
-	flex-direction: column;
-	gap: 16px;
-	@media (max-width: 1144px) {
-		flex-direction: row;
-	}
-	@media (max-width: 370px) {
-		flex-direction: column;
-
-		justify-content: flex-start;
-		align-content: flex-start;
-	}
-`;
-
-export const Skills = () => {
-	return (
-		<StyledSlillsContainer>
-			<Title text="skills" line={true} lineWidth="239px" />
-			<StyledSlillsContent>
-				<StyledSlillsLeftSide>
-					<Figures />
-				</StyledSlillsLeftSide>
-				<StyledSlillsRightSide>
-					<InfoCard title={'Language'} description={['TypeScript', 'Lua', 'Python', 'JavaScript']} />
-					<StyledSkillCardGap>
-						<InfoCard title={'Databases'} description={['SQLite', 'PostgreSQL', 'Mongo']} />
-						<InfoCard title={'Other'} description={['HTML', 'CSS', 'EJS', 'SCSS', 'REST', 'Jinja']} />
-					</StyledSkillCardGap>
-					<StyledSkillCardGap>
-						<InfoCard
-							title={'Tools'}
-							description={['VSCode', 'Neovim', 'Linux', 'Figma', 'XFCE', 'Arch', 'Git', 'Font Awesome']}
-						/>
-						<InfoCard
-							title={'Frameworks'}
-							description={['React', 'Vue', 'Disnake', 'Discord.js', 'Flask', 'Express.js']}
-						/>
-					</StyledSkillCardGap>
-				</StyledSlillsRightSide>
-			</StyledSlillsContent>
-		</StyledSlillsContainer>
-	);
-};

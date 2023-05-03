@@ -131,7 +131,7 @@ const Contacts = () => {
 				<StyledIcon>
 					<IconInlineDots />
 				</StyledIcon>
-				<NavigationTitle title={'contacts'} subtitle={'Who am i?'} />
+				<NavigationTitle  subtitle={'Who am i?'} />
 				<StyledInfoContainer>
 					<StyledInfoLeftSide>
 						I’m interested in freelance opportunities. However, if you have other request or question, don’t

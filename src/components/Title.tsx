@@ -1,11 +1,36 @@
 import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
+
+interface StyledLine {
+	lineWidth?: string;
+}
+
+interface TitleProps {
+	text: string;
+	lineWidth?: string;
+}
+
+export const Title: FC<TitleProps> = ({ text = '', lineWidth = '' }) => {
+	const { t } = useTranslation();
+
+	return (
+		<StyledTitle>
+			{text && (
+				<>
+					<StyledHash>#</StyledHash>
+					{t(text)} {!!lineWidth && <StyledLine lineWidth={lineWidth} />}
+				</>
+			)}
+		</StyledTitle>
+	);
+};
 
 const StyledTitle = styled.div`
 	font-weight: 500;
 	font-size: 32px;
 	line-height: 42px;
-	display: flex;
+	display: inline-flex;
 	align-items: center;
 `;
 
@@ -13,30 +38,13 @@ const StyledHash = styled.span`
 	color: ${(props) => props.theme.color.primary};
 `;
 
-interface StyledLine {
-	lineWidth?: string;
-}
-
 const StyledLine = styled.span<StyledLine>`
 	width: ${(props) => props.lineWidth};
+	flex: 1 1 auto;
 	@media (max-width: 1144px) {
-		width: 0
+		width: 0;
 	}
 	height: 1px;
 	margin-left: 16px;
 	background-color: ${(props) => props.theme.color.primary};
 `;
-interface TitleProps {
-	text: string;
-	line?: boolean;
-	lineWidth?: string;
-}
-
-export const Title: FC<TitleProps> = ({ text, line, lineWidth }) => {
-	return (
-		<StyledTitle>
-			<StyledHash>#</StyledHash>
-			{text} {line && <StyledLine lineWidth={lineWidth} />}
-		</StyledTitle>
-	);
-};

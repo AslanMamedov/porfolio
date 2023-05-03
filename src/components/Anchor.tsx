@@ -1,77 +1,35 @@
-import { FC, ReactNode } from 'react';
+import { ComponentPropsWithoutRef, FC, ReactNode, memo, } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const StyledAnchorPrimary = styled.span`
-	padding: 10px 16px;
-	height: 38px;
-	display: inline-block;
-	cursor: pointer;
-	border: 1px solid ${(props) => props.theme.color.primary};
-	&:hover {
-		background: ${(props) => props.theme.color.primaryrgba};
-	}
-	a {
-		height: 100%;
-		width: 100%;
-		color: ${(props) => props.theme.color.white};
-	}
-`;
-const StyledAnchorLightGray = styled.span`
-	padding: 10px 16px;
-	height: 38px;
-	display: inline-block;
-	cursor: pointer;
-	color: ${(props) => props.theme.color.gray};
-	border: 1px solid ${(props) => props.theme.color.gray};
-	&:hover {
-		background: ${(props) => props.theme.color.grayrbga};
-	}
-	a {
-		height: 100%;
-		width: 100%;
-		color: ${(props) => props.theme.color.gray};
-	}
-`;
+interface IAnchorProps extends ComponentPropsWithoutRef<'a'> {
+	variant: 'primary' | 'lightgray';
+}
 
-interface AnchorProps {
+interface AnchorProps extends ComponentPropsWithoutRef<'a'> {
 	to: string;
 	title: string;
 	icon?: ReactNode;
-	type: 'primary' | 'lightgray';
-	linkType?: boolean;
+	variant: 'primary' | 'lightgray';
 }
 
-const StyledLink = styled.a``;
-
-export const Anchor: FC<AnchorProps> = ({ icon, title, to, type, linkType }) => {
-	if (type === 'lightgray') {
-		return (
-			<StyledAnchorLightGray>
-				{linkType ? (
-					<StyledLink href={to} target="_blank">
-						{title}
-					</StyledLink>
-				) : (
-					<Link to={to}>
-						{title} {icon && icon}
-					</Link>
-				)}
-			</StyledAnchorLightGray>
-		);
-	}
-
+export const Anchor: FC<AnchorProps> = memo(({ icon, title, to, variant, ...props }) => {
 	return (
-		<StyledAnchorPrimary>
-			{linkType ? (
-				<StyledLink href={to} target="_blank">
-					{title}
-				</StyledLink>
-			) : (
-				<Link to={to}>
-					{title} {icon && icon}
-				</Link>
-			)}
-		</StyledAnchorPrimary>
+		<StyledAnchor to={to} variant={variant} {...props}>
+			{title} {icon && icon}
+		</StyledAnchor>
 	);
-};
+});
+
+const StyledAnchor = styled(Link)<IAnchorProps>`
+	padding: 10px 16px;
+	height: 38px;
+	display: inline-block;
+	cursor: pointer;
+	color: ${(props) => (props.variant === 'primary' ? props.theme.color.white : props.theme.color.gray)};
+	border: 1px solid ${(props) => (props.variant === 'primary' ? props.theme.color.primary : props.theme.color.gray)};
+	&:hover {
+		background: ${(props) =>
+			props.variant === 'primary' ? props.theme.color.primaryrgba : props.theme.color.grayrbga};
+	}
+`;

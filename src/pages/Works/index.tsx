@@ -1,8 +1,8 @@
 import { Container } from 'components/Container';
-import { InfoCard } from 'components/InfoCard';
 import { PortfolioCard } from 'components/PortfolioCard';
 import { NavigationTitle, Title } from 'components/index';
 import { IconDots, IconInlineDots } from 'icons/index';
+import { FC } from 'react';
 import styled from 'styled-components';
 
 const StyledWorsHeader = styled.div`
@@ -97,11 +97,11 @@ const StyledIconRight = styled.span`
 	}
 `;
 
-const Works = () => {
+const Works: FC = () => {
 	return (
 		<Container>
 			<StyledWorsHeader>
-				<NavigationTitle title={'projects'} subtitle={'List of my projects'} />
+				<NavigationTitle subtitle={'List of my projects'} />
 				<StyledCompleteContaier>
 					<StyledIconLeft>
 						<IconInlineDots />
@@ -110,12 +110,11 @@ const Works = () => {
 					<StyledCompleteLists>
 						<StyledCompleteProject>
 							<PortfolioCard
-								linkType={true}
 								imgSrc={'/src/assets/images/porfoliimage.png'}
 								tools={['HTML', 'React', 'TS', 'HTML', 'React', 'TS']}
 								description={'adasdadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}
 								title={'asdaasaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}
-								linkLive="/works"
+								linkDemo="/works"
 							/>
 						</StyledCompleteProject>
 					</StyledCompleteLists>
@@ -128,22 +127,20 @@ const Works = () => {
 					<StyledSmallProjectLists>
 						<StyledSmallProject>
 							<PortfolioCard
-								linkType={true}
 								imgSrc={''}
 								tools={['HTML', 'React', 'TS', 'HTML', 'React', 'TS']}
 								description={'adasdadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}
 								title={'asdaasaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}
-								linkLive="/works"
+								linkDemo="/works"
 							/>
 						</StyledSmallProject>
 						<StyledSmallProject>
 							<PortfolioCard
-								linkType={true}
 								imgSrc={''}
 								tools={['HTML', 'React', 'TS', 'HTML', 'React', 'TS']}
 								description={'adasdadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}
 								title={'asdaasaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}
-								linkLive="/works"
+								linkDemo="/works"
 							/>
 						</StyledSmallProject>
 					</StyledSmallProjectLists>

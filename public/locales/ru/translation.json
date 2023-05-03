@@ -1,9 +1,11 @@
 {
 	"home": "главная",
 	"works": "работы",
-	"about": "обо-мне",
+	"about-me": "обо-мне",
 	"contacts": "контакты",
 	"name": "Аслан",
+	"projects": "проекты",
+	"skills": "навыки",
 	"footer-description": "Frontend и Backend разработчик",
 	"copyright": "Copyright 2023. Сделан был Асланом. Дизайн сделан Elias из Figma design",
 	"footer-social-media": "Социальные сети",
@@ -15,5 +17,8 @@
 	"main-image-portfolio": "Сейчас работает над ",
 	"portfolio": "Портфолио",
 	"quote": "Никогда не ошибается тот, кто ничего не делает",
-	"quote-author": " Теодор Рузвельт"
+	"quote-author": " Теодор Рузвельт",
+	"small-projects": "мини-приложения",
+	"complete-apps": "законченные-приложения",
+	"my-fun-facts": "веселые-факты-обо-мне"
 }

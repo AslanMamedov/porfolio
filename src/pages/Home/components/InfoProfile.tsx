@@ -1,6 +1,21 @@
 import { Anchor } from 'components/index';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
+
+export const InfoProfile = () => {
+	const { t } = useTranslation();
+	return (
+		<StyledLefSide>
+			<StyledInfoTitle>
+				{t('name')} {t('is')} <StyledMarkerText>Frontend</StyledMarkerText> {t('and')}
+				<StyledMarkerText> Backend {t('developer')}</StyledMarkerText>
+			</StyledInfoTitle>
+			<StyledSubTitle>{t('main-subtitle')}</StyledSubTitle>
+			<StyledAnchor title={t('main-link-button')} to="/contacts" variant="primary" />
+		</StyledLefSide>
+	);
+};
+
 const StyledLefSide = styled.div`
 	max-width: 538px;
 	margin-top: 74px;
@@ -19,7 +34,6 @@ const StyledInfoTitle = styled.div`
 
 const StyledMarkerText = styled.p`
 	display: inline;
-
 	color: ${(props) => props.theme.color.primary};
 `;
 
@@ -35,25 +49,9 @@ const StyledSubTitle = styled.h2`
 	color: ${(props) => props.theme.color.gray};
 `;
 
-const StyledAnchor = styled.div`
+const StyledAnchor = styled(Anchor)`
 	margin-top: 24px;
 	@media (max-width: 1144px) {
 		display: none;
 	}
 `;
-
-export const InfoProfile = () => {
-	const { t } = useTranslation();
-	return (
-		<StyledLefSide>
-			<StyledInfoTitle>
-				{t('name')} {t('is')} <StyledMarkerText>Frontend</StyledMarkerText> {t('and')}
-				<StyledMarkerText> Backend {t('developer')}</StyledMarkerText>
-			</StyledInfoTitle>
-			<StyledSubTitle>{t('main-subtitle')}</StyledSubTitle>
-			<StyledAnchor>
-				<Anchor title={t('main-link-button')} to="contacts" type="primary" />
-			</StyledAnchor>
-		</StyledLefSide>
-	);
-};

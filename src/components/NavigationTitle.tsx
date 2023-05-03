@@ -1,16 +1,35 @@
-import { FC } from 'react';
-import styled from 'styled-components';
+import { FC, memo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 
-const StyledTitle = styled.div`
+interface NavigationTitleProps {
+	subtitle: string;
+}
+
+export const NavigationTitle: FC<NavigationTitleProps> = memo(({ subtitle }) => {
+	const { t } = useTranslation();
+	const location = useLocation();
+
+	return (
+		<StyledTitle>
+			<StyledLine>/</StyledLine>
+			{t(`${location.pathname.split('/')[1]}`)} <StyledSubtitle>{subtitle}</StyledSubtitle>
+		</StyledTitle>
+	);
+});
+
+const StyledFonts = css`
 	font-weight: 600;
 	font-size: 32px;
 	line-height: 42px;
 `;
 
+const StyledTitle = styled.div`
+	${StyledFonts}
+`;
 const StyledLine = styled.span`
-	font-weight: 600;
-	font-size: 32px;
-	line-height: 42px;
+	${StyledFonts}
 	color: ${(props) => props.theme.color.primary};
 `;
 const StyledSubtitle = styled.p`
@@ -19,17 +38,3 @@ const StyledSubtitle = styled.p`
 	line-height: 21px;
 	margin-top: 14px;
 `;
-
-interface NavigationTitleProps {
-	title: string;
-	subtitle: string;
-}
-
-export const NavigationTitle: FC<NavigationTitleProps> = ({ title, subtitle }) => {
-	return (
-		<StyledTitle>
-			<StyledLine>/</StyledLine>
-			{title} <StyledSubtitle>{subtitle}</StyledSubtitle>
-		</StyledTitle>
-	);
-};

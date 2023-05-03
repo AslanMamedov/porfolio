@@ -1,10 +1,19 @@
 import styled from 'styled-components';
 import { ImageProfile } from '.';
 import { InfoProfile } from './InfoProfile';
+import { FC } from 'react';
+
+export const MainHeader: FC = () => {
+	return (
+		<StyledSectionInfo>
+			<InfoProfile />
+			<ImageProfile />
+		</StyledSectionInfo>
+	);
+};
 
 const StyledSectionInfo = styled.section`
 	margin-top: 62px;
-
 	display: flex;
 	justify-content: space-between;
 	@media (max-width: 1144px) {
@@ -13,11 +22,3 @@ const StyledSectionInfo = styled.section`
 		justify-content: center;
 	}
 `;
-export const MainHeader = () => {
-	return (
-		<StyledSectionInfo>
-			<InfoProfile />
-			<ImageProfile />
-		</StyledSectionInfo>
-	);
-};

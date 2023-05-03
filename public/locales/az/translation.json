@@ -1,9 +1,10 @@
 {
 	"home": "eses",
 	"works": "isler",
-	"about": "menim-haqqimda",
+	"about-me": "menim-haqqimda",
 	"contacts": "contaclar",
 	"name": "Aslan",
+	"projects": "proectler",
 	"footer-description": "Frontend ve Backend developer",
 	"copyright": "Copyright 2023. Yaradicisi Aslan. Desayin made by Elias from Figma design",
 	"footer-social-media": "Social seyfeler",

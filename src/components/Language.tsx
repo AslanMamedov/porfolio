@@ -1,7 +1,68 @@
-import { IconArrow } from 'icons/index';
 import { FC, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
+import { IconArrow } from 'icons/index';
+
+interface IArrow {
+	show: boolean;
+}
+
+interface ILanguageProps {
+	setShowMenu: (value: boolean) => void;
+}
+
+export const Language: FC<ILanguageProps> = ({ setShowMenu }) => {
+	const { i18n } = useTranslation();
+	const [lang, setLang] = useState<string>(localStorage?.getItem('i18nextLng') || 'en');
+	const [show, setShow] = useState<boolean>(false);
+	const LanguageRef = useRef<HTMLDivElement | null>(null);
+	const langList = useMemo<string[]>(() => ['en', 'ru', 'az'], []);
+	const onSelectedHandler = (item: string) => () => {
+		setLang(item);
+		setShow(true);
+		setShowMenu(false);
+		i18n.changeLanguage(item);
+	};
+	const onSelecLanguage = () => {
+		setShow((prevState) => !prevState);
+	};
+	useEffect(() => {
+		const handler = (e: MouseEvent) => {
+			if (LanguageRef.current && !LanguageRef.current.contains(e.target as Node)) {
+				setShow(false);
+			}
+		};
+		document.addEventListener('click', handler);
+		return () => document.removeEventListener('click', handler);
+	}, [LanguageRef, setShow]);
+
+	return (
+		<StyledLanguage className="lang-container lang" onClick={onSelecLanguage} ref={LanguageRef}>
+			{lang}
+			<StyledArrow show={show} className="lang-container__icon">
+				<IconArrow className="lang-container__arrow arrow" />
+			</StyledArrow>
+			{show && (
+				<StyledLangList className="lang-container__lang-list">
+					{langList.map((item: string, index) => (
+						<StyledLang
+							style={{
+								backgroundColor: `${item === lang ? '#e0e0e0' : null}`,
+								color: `${item === lang ? '#282C33' : null}`,
+								fontWeight: 400,
+							}}
+							className="lang-container__lang-item"
+							onClick={onSelectedHandler(item)}
+							key={index}
+						>
+							<StyledLangItem className="lang-container__lang-text">{item}</StyledLangItem>
+						</StyledLang>
+					))}
+				</StyledLangList>
+			)}
+		</StyledLanguage>
+	);
+};
 
 const StyledLanguage = styled.div`
 	color: ${(props) => props.theme.color.gray};
@@ -18,18 +79,12 @@ const StyledLanguage = styled.div`
 	z-index: 11111111111111111111111;
 `;
 
-interface ILangList {
-	title: string;
-}
-
 const StyledLangList = styled.ul`
 	position: fixed;
 	top: 54px;
 	z-index: 111111;
 	border: 1px solid ${(props) => props.theme.color.grayLight};
-
 	background-color: ${(props) => props.theme.color.main};
-
 	@media (max-width: 854px) {
 		top: 414px;
 	}
@@ -37,7 +92,6 @@ const StyledLangList = styled.ul`
 
 const StyledLang = styled.li`
 	font-weight: 400;
-
 	&:hover {
 		background-color: ${(props) => props.theme.color.grayLight};
 		color: ${(props) => props.theme.color.main};
@@ -61,10 +115,6 @@ const StyledLangItem = styled.span`
 	}
 `;
 
-interface IArrow {
-	show: boolean;
-}
-
 const StyledArrow = styled.span<IArrow>`
 	svg {
 		transform: ${(props) => (props.show ? 'rotate(180deg)' : 'rotate(0deg)')};
@@ -77,77 +127,3 @@ const StyledArrow = styled.span<IArrow>`
 		}
 	}
 `;
-
-interface ILanguageProps {
-	setShowMenu: (value: boolean) => void;
-}
-
-export const Language: FC<ILanguageProps> = ({ setShowMenu }) => {
-	const { i18n } = useTranslation();
-	const [lang, setLang] = useState<string>(localStorage?.getItem('i18nextLng') || 'en');
-	const [show, setShow] = useState<boolean>(false);
-
-	const langList = useMemo(() => {
-		return [
-			{
-				title: 'en',
-			},
-			{
-				title: 'ru',
-			},
-			{
-				title: 'az',
-			},
-		];
-	}, []);
-
-	const onSelectedHandler = (item: ILangList) => () => {
-		setLang(item.title);
-		setShow(true);
-		setShowMenu(false);
-		i18n.changeLanguage(item.title);
-	};
-
-	const onSelecLanguage = () => {
-		setShow((prevState) => !prevState);
-	};
-
-	const LanguageRef = useRef<HTMLDivElement | null>(null);
-
-	useEffect(() => {
-		const handler = (e: MouseEvent) => {
-			if (LanguageRef.current && !LanguageRef.current.contains(e.target as Node)) {
-				setShow(false);
-			}
-		};
-		document.addEventListener('click', handler);
-		return () => document.removeEventListener('click', handler);
-	}, [LanguageRef, setShow]);
-
-	return (
-		<StyledLanguage className="lang-container lang" onClick={onSelecLanguage} ref={LanguageRef}>
-			{lang}
-			<StyledArrow show={show} className="lang-container__icon">
-				<IconArrow className="lang-container__arrow arrow" />
-			</StyledArrow>
-			{show && (
-				<StyledLangList className="lang-container__lang-list">
-					{langList.map((item: ILangList, index) => (
-						<StyledLang
-							style={{
-								backgroundColor: `${item.title === lang ? '#e0e0e0' : null}`,
-								color: `${item.title === lang ? '#282C33' : null}`,
-								fontWeight: 400,
-							}}
-							className="lang-container__lang-item"
-							onClick={onSelectedHandler(item)}
-							key={index}
-						>
-							<StyledLangItem className="lang-container__lang-text">{item.title}</StyledLangItem>
-						</StyledLang>
-					))}
-				</StyledLangList>
-			)}
-		</StyledLanguage>
-	);
-};

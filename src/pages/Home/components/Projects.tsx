@@ -1,13 +1,34 @@
 import { PortfolioCard } from 'components/PortfolioCard';
 import { Title } from 'components/index';
 import { IconDots } from 'icons/index';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+
+export const Projects: FC = () => {
+	return (
+		<StyledProjectsContainer>
+			<StyledFigureIcon />
+			<StyledTopContainer>
+				<Title text="projects" lineWidth="511px" />
+				<StyledLinkViewAll to={'/works'}>View all {`~~>`}</StyledLinkViewAll>
+			</StyledTopContainer>
+			<StyledCardContainer>
+				<PortfolioCard
+					imgSrc={'/src/assets/images/porfoliimage.png'}
+					tools={['HTML', 'React', 'TS', 'HTML', 'React', 'TS']}
+					description={'adasdadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}
+					title={'asdaasaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}
+					linkDemo="/works"
+				/>
+			</StyledCardContainer>
+		</StyledProjectsContainer>
+	);
+};
 
 const StyledProjectsContainer = styled.section`
 	margin-top: 74px;
 	position: relative;
-
 	&::after {
 		content: '';
 		width: 155px;
@@ -32,13 +53,11 @@ const StyledProjectsContainer = styled.section`
 	}
 `;
 
-const StyledLinkViewAll = styled.span`
-	a {
-		font-weight: 500;
-		font-size: 16px;
-		line-height: 21px;
-		color: ${(props) => props.theme.color.white};
-	}
+const StyledLinkViewAll = styled(Link)`
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 21px;
+	color: ${(props) => props.theme.color.white};
 `;
 
 const StyledTopContainer = styled.div`
@@ -50,48 +69,19 @@ const StyledTopContainer = styled.div`
 const StyledCardContainer = styled.div`
 	margin-top: 48px;
 	display: flex;
-
-	/* justify-content: center; */
 	flex-wrap: wrap;
 	gap: 17px;
 	align-items: baseline;
 `;
 
-const StyledFigureIcon = styled.span`
+const StyledFigureIcon = styled(IconDots)`
 	position: absolute;
 	left: -150px;
 	top: 78px;
-	svg {
-		width: 68px;
-		height: 68px;
-	}
+	width: 68px;
+	height: 68px;
+
 	@media (max-width: 1144px) {
 		display: none;
 	}
 `;
-
-export const Projects = () => {
-	return (
-		<StyledProjectsContainer>
-			<StyledFigureIcon>
-				<IconDots />
-			</StyledFigureIcon>
-			<StyledTopContainer>
-				<Title text="projects" line={true} lineWidth="511px" />
-				<StyledLinkViewAll>
-					<Link to={'/works'}>View all {`~~>`}</Link>
-				</StyledLinkViewAll>
-			</StyledTopContainer>
-			<StyledCardContainer>
-				<PortfolioCard
-					linkType={true}
-					imgSrc={'/src/assets/images/porfoliimage.png'}
-					tools={['HTML', 'React', 'TS', 'HTML', 'React', 'TS']}
-					description={'adasdadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}
-					title={'asdaasaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}
-					linkLive="/works"
-				/>
-			</StyledCardContainer>
-		</StyledProjectsContainer>
-	);
-};

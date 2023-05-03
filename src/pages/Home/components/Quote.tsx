@@ -1,6 +1,23 @@
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
+export const Quote = () => {
+	const { t } = useTranslation();
+
+	return (
+		<StyledQuote>
+			<StyledQuoteContainer>
+				<StyledQuoteText>
+					<StyledQuoteTop>“</StyledQuoteTop>
+					{t('quote')}
+					<StyledQuoteBottom>“</StyledQuoteBottom>
+				</StyledQuoteText>
+				<StyledQuoteAuthor>- {t('quote-author')}</StyledQuoteAuthor>
+			</StyledQuoteContainer>
+		</StyledQuote>
+	);
+};
+
 const StyledQuote = styled.section`
 	display: flex;
 	justify-content: center;
@@ -96,19 +113,3 @@ const StyledQuoteBottom = styled.span`
 		position: absolute;
 	}
 `;
-export const Quote = () => {
-	const { t } = useTranslation();
-
-	return (
-		<StyledQuote>
-			<StyledQuoteContainer>
-				<StyledQuoteText>
-					<StyledQuoteTop>“</StyledQuoteTop>
-					{t('quote')}
-					<StyledQuoteBottom>“</StyledQuoteBottom>
-				</StyledQuoteText>
-				<StyledQuoteAuthor>- {t('quote-author')}</StyledQuoteAuthor>
-			</StyledQuoteContainer>
-		</StyledQuote>
-	);
-};

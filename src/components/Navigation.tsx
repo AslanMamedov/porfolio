@@ -1,10 +1,86 @@
-import { FC, useEffect, useMemo, useState } from 'react';
+import { FC, memo, useCallback, useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { Language } from './Language';
-import { useTranslation } from 'react-i18next';
 import { Logo } from './Logo';
-import { IconBurgerLine, IconBurgerX } from 'icons/index';
+import { ButtonUp } from './ButtonUp';
+import { BurgerMenu } from './BurgerMenu';
+import { ILinks } from './Header';
+interface INavMenuProps {
+	showMenu: boolean;
+}
+interface NavigationProps {
+	links: ILinks[];
+}
+
+export const Navigation: FC<NavigationProps> = memo(({ links }) => {
+	const [showButton, setShowButton] = useState<boolean>(false);
+	const [showMenu, setShowMenu] = useState<boolean>(false);
+	const location = useLocation();
+	const showMenuHandler = useCallback(() => {
+		setShowMenu((prevState) => !prevState);
+	}, [setShowMenu]);
+
+	useEffect(() => {
+		const scrollProgress = () => {
+			const scrollPx = document.documentElement.scrollTop;
+			const winHeightPx = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+			// const scrolled = `${(scrollPx / winHeightPx) * 100}%`;
+			if (scrollPx > 100) {
+				setShowButton(true);
+			} else {
+				setShowButton(false);
+			}
+		};
+		window.addEventListener('scroll', scrollProgress);
+		return () => {
+			window.removeEventListener('scroll', scrollProgress);
+		};
+	}, [setShowButton]);
+
+	useEffect(() => {
+		if (showMenu) {
+			document.body.style.overflowY = 'hidden';
+		} else {
+			document.body.style.overflowY = 'initial';
+		}
+		return () => {
+			document.body.style.overflowY = 'initial';
+		};
+	}, [showMenu, location.pathname]);
+
+	useEffect(() => {
+		if (location.pathname) {
+			setShowMenu(false);
+		} else {
+			setShowMenu(true);
+		}
+	}, [location.pathname]);
+
+	return (
+		<StyledNav className="nav">
+			{showButton && <ButtonUp />}
+			<Logo />
+			<BurgerMenu showMenu={showMenu} setShowMenu={showMenuHandler} />
+			<StyledContainer className="nav__container" showMenu={showMenu}>
+				<StyledLinkLists className="nav__link-list">
+					{links.map((link, index) => (
+						<StyledLink key={index} className="nav__link-item">
+							<NavLink
+								to={link.path}
+								style={({ isActive }) => ({ color: isActive ? '#ffffff' : '#ABB2BF' })}
+							>
+								<StyledHash>#</StyledHash>
+								{link.title}
+							</NavLink>
+						</StyledLink>
+					))}
+				</StyledLinkLists>
+				<Language setShowMenu={setShowMenu} />
+			</StyledContainer>
+		</StyledNav>
+	);
+});
 
 const StyledNav = styled.nav`
 	padding-top: 32px;
@@ -53,10 +129,6 @@ const StyledHash = styled.span`
 	font-weight: 500;
 `;
 
-interface INavMenuProps {
-	showMenu: boolean;
-}
-
 const StyledContainer = styled.div<INavMenuProps>`
 	${(props) =>
 		props.showMenu
@@ -79,150 +151,3 @@ const StyledContainer = styled.div<INavMenuProps>`
 					}
 			  `}
 `;
-
-const StyledBurgerMenu = styled.button`
-	background-color: transparent;
-	outline: none;
-	border: none;
-	display: block;
-	position: fixed;
-	z-index: 111111;
-
-	right: 16px;
-	svg {
-		width: 34px;
-		height: 34px;
-	}
-	@media (min-width: 854px) {
-		display: none;
-	}
-`;
-
-const StyledBurgerMenuContainer = styled.div`
-	display: flex;
-	justify-content: space-between;
-	flex: 1 1 auto;
-	width: 100vw;
-	padding-left: 35px;
-	color: ${(props) => props.theme.color.white};
-`;
-
-const StyledUpButton = styled.button`
-	position: fixed;
-	right: 160px;
-	top: 500px;
-	padding: 15px;
-	transform: rotate(-90deg);
-	border: 1px solid ${(props) => props.theme.color.gray};
-	background-color: ${(props) => props.theme.color.main};
-	color: ${(props) => props.theme.color.white};
-	@media (max-width: 1454px) {
-		display: none;
-	}
-`;
-
-export const Navigation: FC = () => {
-	const { t } = useTranslation();
-	const location = useLocation();
-
-	const [showMenu, setShowMenu] = useState<boolean>(false);
-	const links = useMemo(() => {
-		return [
-			{
-				path: '/',
-				title: t('home'),
-			},
-			{
-				path: '/works',
-				title: t('works'),
-			},
-			{
-				path: '/about-me',
-				title: t('about'),
-			},
-			{
-				path: '/contacts',
-				title: t('contacts'),
-			},
-		];
-	}, [t]);
-
-	const [showButton, setShowButton] = useState<boolean>(false);
-	useEffect(() => {
-		const scrollProgress = () => {
-			const scrollPx = document.documentElement.scrollTop;
-			const winHeightPx = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-			// const scrolled = `${(scrollPx / winHeightPx) * 100}%`;
-			if (scrollPx > 100) {
-				setShowButton(true);
-			} else {
-				setShowButton(false);
-			}
-		};
-		window.addEventListener('scroll', scrollProgress);
-		return () => {
-			window.removeEventListener('scroll', scrollProgress);
-		};
-	}, [setShowButton]);
-
-	useEffect(() => {
-		if (showMenu) {
-			document.body.style.overflowY = 'hidden';
-		} else {
-			document.body.style.overflowY = 'initial';
-		}
-		return () => {
-			document.body.style.overflowY = 'initial';
-		};
-	}, [showMenu, location.pathname]);
-
-	useEffect(() => {
-		if (location.pathname) {
-			setShowMenu(false);
-		} else {
-			setShowMenu(true);
-		}
-	}, [location.pathname]);
-
-	return (
-		<StyledNav className="nav">
-			{showButton && (
-				<StyledUpButton
-					onClick={() => {
-						window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-					}}
-				>
-					{'~~>'}
-				</StyledUpButton>
-			)}
-
-			<Logo />
-			<StyledBurgerMenu onClick={() => setShowMenu((prevState) => !prevState)}>
-				{!showMenu ? (
-					<IconBurgerLine />
-				) : (
-					<StyledBurgerMenuContainer>
-						<Logo />
-						<IconBurgerX />
-					</StyledBurgerMenuContainer>
-				)}
-			</StyledBurgerMenu>
-			<StyledContainer className="nav__container" showMenu={showMenu}>
-				<StyledLinkLists className="nav__link-list">
-					{links.map((link, index) => (
-						<StyledLink key={index} className="nav__link-item">
-							<NavLink
-								to={link.path}
-								style={({ isActive }) => ({ color: isActive ? '#ffffff' : '#ABB2BF' })}
-							>
-								<StyledHash>#</StyledHash>
-								{link.title}
-							</NavLink>
-						</StyledLink>
-					))}
-				</StyledLinkLists>
-				<Language setShowMenu={setShowMenu} />
-			</StyledContainer>
-		</StyledNav>
-	);
-};

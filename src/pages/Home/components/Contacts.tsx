@@ -2,6 +2,22 @@ import { ContactCard, Title } from 'components/index';
 import { IconDots } from 'icons/index';
 import styled from 'styled-components';
 
+export const Contacts = () => {
+	return (
+		<StyledContactsContainer>
+			<StyledDots />
+			<Title text="contacts" lineWidth="128px" />
+			<StyledContactContent>
+				<StyledContactText>
+					I’m interested in freelance opportunities. However, if you have other request or question, don’t
+					hesitate to contact me
+				</StyledContactText>
+				<ContactCard />
+			</StyledContactContent>
+		</StyledContactsContainer>
+	);
+};
+
 const StyledContactsContainer = styled.section`
 	margin-top: 112px;
 	margin-bottom: 145px;
@@ -31,30 +47,10 @@ const StyledContactText = styled.h3`
 	color: ${(props) => props.theme.color.gray};
 `;
 
-const StyledDots = styled.span`
+const StyledDots = styled(IconDots)`
 	position: absolute;
 	top: 94px;
 	left: -276px;
-	svg {
-		width: 105px;
-		height: 105px;
-	}
+	width: 105px;
+	height: 105px;
 `;
-
-export const Contacts = () => {
-	return (
-		<StyledContactsContainer>
-			<StyledDots>
-				<IconDots />
-			</StyledDots>
-			<Title text="contacts" line={true} lineWidth="128px" />
-			<StyledContactContent>
-				<StyledContactText>
-					I’m interested in freelance opportunities. However, if you have other request or question, don’t
-					hesitate to contact me
-				</StyledContactText>
-				<ContactCard />
-			</StyledContactContent>
-		</StyledContactsContainer>
-	);
-};
