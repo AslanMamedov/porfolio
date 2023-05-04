@@ -1,5 +1,5 @@
-import { IconDots, IconInlineDots } from 'icons/index';
 import { FC } from 'react';
+import { IconDots, IconInlineDots } from 'icons/index';
 import styled from 'styled-components';
 
 export const DotsImage: FC = () => {
@@ -30,7 +30,7 @@ const DotsImageContainer = styled.div`
 		left: 50%;
 		transform: translateX(-50%);
 		z-index: 1111;
-		background-color: ${(props) => props.theme.color.primary};
+		background-color: ${({ theme }) => theme.color.primary};
 	}
 `;
 

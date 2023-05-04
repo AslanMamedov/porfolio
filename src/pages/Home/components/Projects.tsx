@@ -1,27 +1,23 @@
-import { PortfolioCard } from 'components/PortfolioCard';
-import { Title } from 'components/index';
-import { IconDots } from 'icons/index';
 import { FC } from 'react';
+import { ProjectsLists, Title } from 'components/index';
+import { IconDots } from 'icons/index';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Projects: FC = () => {
+	const { t } = useTranslation();
 	return (
 		<StyledProjectsContainer>
 			<StyledFigureIcon />
 			<StyledTopContainer>
 				<Title text="projects" lineWidth="511px" />
-				<StyledLinkViewAll to={'/works'}>View all {`~~>`}</StyledLinkViewAll>
+				<StyledLinkViewAll to={'/works'}>
+					{t('view-all')}
+					{`~~>`}
+				</StyledLinkViewAll>
 			</StyledTopContainer>
-			<StyledCardContainer>
-				<PortfolioCard
-					imgSrc={'/src/assets/images/porfoliimage.png'}
-					tools={['HTML', 'React', 'TS', 'HTML', 'React', 'TS']}
-					description={'adasdadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}
-					title={'asdaasaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}
-					linkDemo="/works"
-				/>
-			</StyledCardContainer>
+			<ProjectsLists />
 		</StyledProjectsContainer>
 	);
 };
@@ -37,7 +33,7 @@ const StyledProjectsContainer = styled.section`
 		position: absolute;
 		right: -400px;
 		top: 50%;
-		border: 1px solid ${(props) => props.theme.color.gray};
+		border: 1px solid ${({ theme }) => theme.color.gray};
 		@media (max-width: 1144px) {
 			display: none;
 		}
@@ -57,21 +53,13 @@ const StyledLinkViewAll = styled(Link)`
 	font-weight: 500;
 	font-size: 16px;
 	line-height: 21px;
-	color: ${(props) => props.theme.color.white};
+	color: ${({ theme }) => theme.color.white};
 `;
 
 const StyledTopContainer = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-`;
-
-const StyledCardContainer = styled.div`
-	margin-top: 48px;
-	display: flex;
-	flex-wrap: wrap;
-	gap: 17px;
-	align-items: baseline;
 `;
 
 const StyledFigureIcon = styled(IconDots)`

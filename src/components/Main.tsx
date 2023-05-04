@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren } from 'react';
-import styled from 'styled-components';
 import { Container } from './Container';
+import styled from 'styled-components';
 
 export const Main: FC<PropsWithChildren> = ({ children }) => {
 	return (

@@ -1,16 +1,17 @@
 import { FC, memo, useCallback, useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import styled, { css } from 'styled-components';
 import { Language } from './Language';
 import { Logo } from './Logo';
 import { ButtonUp } from './ButtonUp';
 import { BurgerMenu } from './BurgerMenu';
-import { ILinks } from './Header';
-interface INavMenuProps {
+import { Links } from 'type/index';
+import styled, { css } from 'styled-components';
+
+interface StyledNavMenuProps {
 	showMenu: boolean;
 }
 interface NavigationProps {
-	links: ILinks[];
+	links: Links[];
 }
 
 export const Navigation: FC<NavigationProps> = memo(({ links }) => {
@@ -24,8 +25,6 @@ export const Navigation: FC<NavigationProps> = memo(({ links }) => {
 	useEffect(() => {
 		const scrollProgress = () => {
 			const scrollPx = document.documentElement.scrollTop;
-			const winHeightPx = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-			// const scrolled = `${(scrollPx / winHeightPx) * 100}%`;
 			if (scrollPx > 100) {
 				setShowButton(true);
 			} else {
@@ -125,13 +124,13 @@ const StyledLink = styled.li`
 `;
 
 const StyledHash = styled.span`
-	color: ${(props) => props.theme.color.primary};
+	color: ${({ theme }) => theme.color.primary};
 	font-weight: 500;
 `;
 
-const StyledContainer = styled.div<INavMenuProps>`
-	${(props) =>
-		props.showMenu
+const StyledContainer = styled.div<StyledNavMenuProps>`
+	${({ showMenu }) =>
+		showMenu
 			? css`
 					@media (max-width: 854px) {
 						width: 100%;
@@ -140,7 +139,7 @@ const StyledContainer = styled.div<INavMenuProps>`
 						left: 0;
 						top: 0px;
 						z-index: 1101;
-						background-color: ${(props) => props.theme.color.main};
+						background-color: ${({ theme }) => theme.color.main};
 						padding-left: 16px;
 					}
 			  `

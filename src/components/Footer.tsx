@@ -1,13 +1,14 @@
-import styled, { css } from 'styled-components';
+import { FC, memo } from 'react';
 import { Container } from './Container';
 import { Logo } from './Logo';
 import { useTranslation } from 'react-i18next';
-import { ISocialMedia, SocialLink } from '.';
-import { FC, memo } from 'react';
 import { DotsFigures } from './DotsFigures';
+import { SocialLink } from './SocialLink';
+import { SocialMedia } from 'type/index';
+import styled, { css } from 'styled-components';
 
 interface FooterProps {
-	socialMedia: ISocialMedia[];
+	socialMedia: SocialMedia[];
 }
 
 export const Footer: FC<FooterProps> = memo(({ socialMedia }) => {
@@ -51,7 +52,7 @@ const StyledFonts = css`
 `;
 
 const StyledFooter = styled.footer`
-	border-top: 1px solid ${(props) => props.theme.color.gray};
+	border-top: 1px solid ${({ theme }) => theme.color.gray};
 	padding: 32px 0;
 	position: relative;
 `;
@@ -69,7 +70,7 @@ const StyledCopyright = styled.h3`
 	${StyledFonts}
 	margin-top: 48px;
 	text-align: center;
-	color: ${(props) => props.theme.color.gray};
+	color: ${({ theme }) => theme.color.gray};
 	@media (max-width: 1144px) {
 		word-wrap: break-word;
 		margin-top: 12px;
@@ -115,7 +116,7 @@ const StyledMain = styled(StyledLogoContainer)`
 const StyledAnchor = styled.a`
 	${StyledFonts}
 	margin-left: 24px;
-	color: ${(props) => props.theme.color.gray};
+	color: ${({ theme }) => theme.color.gray};
 `;
 
 const StyledDescription = styled.h3`

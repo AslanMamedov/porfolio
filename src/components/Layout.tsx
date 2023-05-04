@@ -1,15 +1,16 @@
-import { Outlet } from 'react-router-dom';
-import { Footer } from './Footer';
-import { Header } from './Header';
-import { Main } from './Main';
-import styled, { css } from 'styled-components';
-import theme from 'styled-theming';
 import { FC, useMemo } from 'react';
-import { ISocialMedia, SocialMediaList } from './SocialMediaList';
 import { IconGithub, IconLinkedin, IconTelegram, IconTwitter } from 'icons/index';
+import { SocialMediaList } from './SocialMediaList';
+import { SocialMedia } from 'type/index';
+import { Footer } from './Footer';
+import { Main } from './Main';
+import { Header } from './Header';
+import { Outlet } from 'react-router-dom';
+import theme from 'styled-theming';
+import styled, { css } from 'styled-components';
 
 export const Layout: FC = () => {
-	const socialMediaList = useMemo<ISocialMedia[]>(() => {
+	const socialMediaList = useMemo<SocialMedia[]>(() => {
 		return [
 			{ icon: IconLinkedin, href: 'https://www.linkedin.com/in/aslanmammadov/' },
 			{ icon: IconTwitter, href: 'https://twitter.com/AslanMamedov94' },
@@ -25,7 +26,6 @@ export const Layout: FC = () => {
 			<Main>
 				<Outlet />
 			</Main>
-
 			<Footer socialMedia={socialMediaList} />
 		</StyledWrapper>
 	);

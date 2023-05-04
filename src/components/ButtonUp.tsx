@@ -1,6 +1,7 @@
+import { FC } from 'react';
 import styled from 'styled-components';
 
-export const ButtonUp = () => {
+export const ButtonUp: FC = () => {
 	return (
 		<StyledUpButton
 			onClick={() => {
@@ -18,9 +19,9 @@ const StyledUpButton = styled.button`
 	top: 500px;
 	padding: 15px;
 	transform: rotate(-90deg);
-	border: 1px solid ${(props) => props.theme.color.gray};
-	background-color: ${(props) => props.theme.color.main};
-	color: ${(props) => props.theme.color.white};
+	border: 1px solid ${({ theme }) => theme.color.gray};
+	background-color: ${({ theme }) => theme.color.main};
+	color: ${({ theme }) => theme.color.white};
 	@media (max-width: 1454px) {
 		display: none;
 	}

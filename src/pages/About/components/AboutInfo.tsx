@@ -1,8 +1,9 @@
-import { DotsImage } from 'components/DotsImage';
+import { FC } from 'react';
+import { AboutDescription, DotsImage } from 'components/index';
 import { IconInlineDots } from 'icons/index';
 import styled from 'styled-components';
 
-export const AboutDescription = () => {
+export const AboutInfo: FC = () => {
 	return (
 		<StyledAboutContainer>
 			<StyledRightSideIcon />
@@ -23,7 +24,7 @@ const StyledAboutContainer = styled.section`
 		width: 155px;
 		height: 155px;
 		display: block;
-		border: 1px solid ${(props) => props.theme.color.gray};
+		border: 1px solid ${({ theme }) => theme.color.gray};
 		position: absolute;
 		right: -300px;
 		top: 112px;

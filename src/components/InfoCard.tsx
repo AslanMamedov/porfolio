@@ -22,7 +22,7 @@ export const InfoCard: FC<InfoCardProps> = ({ description, title }) => {
 const StyledInfoCardContainer = styled.div`
 	width: 178px;
 	align-self: flex-start;
-	border: 1px solid ${(props) => props.theme.color.gray};
+	border: 1px solid ${({ theme }) => theme.color.gray};
 `;
 
 const StyledInfoTitle = styled.h3`
@@ -33,12 +33,12 @@ const StyledInfoTitle = styled.h3`
 `;
 
 const StyledInfoDescription = styled.div`
-	border-top: 1px solid ${(props) => props.theme.color.gray};
+	border-top: 1px solid ${({ theme }) => theme.color.gray};
 	padding: 8px;
 	word-break: break-all;
 	font-weight: 400;
 	font-size: 16px;
-	color: ${(props) => props.theme.color.gray};
+	color: ${({ theme }) => theme.color.gray};
 	line-height: 21px;
 `;
 

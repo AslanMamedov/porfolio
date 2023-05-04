@@ -1,5 +1,5 @@
-import { IconType } from 'icons/index';
 import { ComponentPropsWithoutRef, FC, memo } from 'react';
+import { IconType } from 'icons/index';
 import styled from 'styled-components';
 
 interface SocialLinkProps extends ComponentPropsWithoutRef<'a'> {

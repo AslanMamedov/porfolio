@@ -1,17 +1,15 @@
-import { ContactCard, Title } from 'components/index';
+import { FC } from 'react';
+import { ContactCard, Title, Text } from 'components/index';
 import { IconDots } from 'icons/index';
 import styled from 'styled-components';
 
-export const Contacts = () => {
+export const Contacts: FC = () => {
 	return (
 		<StyledContactsContainer>
 			<StyledDots />
 			<Title text="contacts" lineWidth="128px" />
 			<StyledContactContent>
-				<StyledContactText>
-					I’m interested in freelance opportunities. However, if you have other request or question, don’t
-					hesitate to contact me
-				</StyledContactText>
+				<Text text={'contact-subtitle'} />
 				<ContactCard />
 			</StyledContactContent>
 		</StyledContactsContainer>
@@ -35,16 +33,9 @@ const StyledContactContent = styled.div`
 	@media (max-width: 755px) {
 		margin-top: 20px;
 		flex-wrap: wrap;
+		gap: 10px;
 		justify-content: flex-start;
 	}
-`;
-
-const StyledContactText = styled.h3`
-	width: 505px;
-	font-weight: 500;
-	font-size: 16px;
-	line-height: 21px;
-	color: ${(props) => props.theme.color.gray};
 `;
 
 const StyledDots = styled(IconDots)`

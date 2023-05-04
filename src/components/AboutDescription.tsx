@@ -1,19 +1,16 @@
-import { useTranslation } from 'react-i18next';
+import { FC } from 'react';
+import { Text } from 'components/index';
 import styled from 'styled-components';
 
-export const AboutDescription = () => {
-	const { t } = useTranslation();
+export const AboutDescription: FC = () => {
 	return (
 		<StyledAboutTextContaier>
-			<StyledTopContent>Hello, i’m Elias!</StyledTopContent>
+			<Text text={'about-name'} />
 			<StyledMiddleContent>
-				I’m a self-taught front-end developer based in Kyiv, Ukraine. I can develop responsive websites from
-				scratch and raise them into modern user-friendly web experiences.
+				<Text text={'about-description-one'} />
 			</StyledMiddleContent>
 			<StyledBottomContent>
-				Transforming my creativity and knowledge into a websites has been my passion for over a year. I have
-				been helping various clients to establish their presence online. I always strive to learn about the
-				newest technologies and frameworks.
+				<Text text={'about-description-two'} />
 			</StyledBottomContent>
 		</StyledAboutTextContaier>
 	);
@@ -24,18 +21,15 @@ const StyledAboutTextContaier = styled.div`
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 26px;
-	color: ${(props) => props.theme.color.gray};
+	color: ${({ theme }) => theme.color.gray};
 	margin-bottom: 27px;
 `;
 
-const StyledTopContent = styled.p`
-	display: inline-block;
-`;
-const StyledMiddleContent = styled.p`
+const StyledMiddleContent = styled.div`
 	margin-top: 30px;
 	display: inline-block;
 `;
-const StyledBottomContent = styled.p`
+const StyledBottomContent = styled.div`
 	margin-top: 30px;
 	display: inline-block;
 `;

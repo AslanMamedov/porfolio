@@ -5,7 +5,6 @@ export const useScrollDirection = (): boolean | null => {
 
 	useEffect(() => {
 		let lastScrollY = window.pageYOffset;
-
 		const updateScrollDirection = (): void => {
 			const scrollY = window.pageYOffset;
 			const direction = scrollY > lastScrollY ? false : true;

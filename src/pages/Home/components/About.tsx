@@ -1,15 +1,16 @@
+import { FC } from 'react';
 import { AboutDescription, Anchor, DotsImage, Title } from 'components/index';
 import { IconDots } from 'icons/index';
 import styled from 'styled-components';
 
-export const About = () => {
+export const About: FC = () => {
 	return (
 		<StyledAboutContainer>
 			<StyledAboutLeftSide>
 				<Title text="about-me" lineWidth="100" />
 				<StyledLeftSideContent>
 					<AboutDescription />
-					<Anchor to={'/about-me'} title={'Read more'} variant={'primary'} icon={'->'} />
+					<Anchor to={'/about-me'} title={'read-more'} variant={'primary'} icon={'->'} />
 				</StyledLeftSideContent>
 			</StyledAboutLeftSide>
 			<DotsImage />
@@ -30,7 +31,7 @@ const StyledAboutContainer = styled.section`
 		width: 155px;
 		height: 155px;
 		display: block;
-		border: 1px solid ${(props) => props.theme.color.gray};
+		border: 1px solid ${({ theme }) => theme.color.gray};
 		position: absolute;
 		left: -276px;
 		top: 135px;

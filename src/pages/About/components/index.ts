@@ -1,3 +1,3 @@
-export * from './AboutDescription';
-export * from './AboutFactors';
 export * from './AboutSkills.tsx';
+export * from './AboutInfo.tsx';
+export * from './AboutFactors';

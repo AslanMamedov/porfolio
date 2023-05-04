@@ -1,23 +1,19 @@
-import styled from 'styled-components';
+import { FC, useMemo } from 'react';
 import { Container } from './Container';
 import { Navigation } from './Navigation';
 import { useScrollDirection } from 'hooks/index';
-import { FC, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Links } from 'type/index';
+import styled from 'styled-components';
 
-interface IStyledHeaderProps {
+interface StyledHeaderProps {
 	scrollDirection: boolean | null;
-}
-
-export interface ILinks {
-	path: string;
-	title: string;
 }
 
 export const Header: FC = () => {
 	const scrollDirection = useScrollDirection();
 	const { t } = useTranslation();
-	const links = useMemo<ILinks[]>(() => {
+	const links = useMemo<Links[]>(() => {
 		return [
 			{
 				path: '/',
@@ -46,11 +42,11 @@ export const Header: FC = () => {
 	);
 };
 
-const StyledHeader = styled.header<IStyledHeaderProps>`
+const StyledHeader = styled.header<StyledHeaderProps>`
 	padding: 0 15px;
 	overflow: hidden;
-	background-color: ${(props) => props.theme.color.main};
-	position: ${(props) => props.scrollDirection && 'sticky'};
+	background-color: ${({ theme }) => theme.color.main};
+	position: ${({ scrollDirection }) => scrollDirection && 'sticky'};
 	top: 0;
 	width: 100%;
 	height: 60px;
@@ -64,7 +60,7 @@ const StyledHeader = styled.header<IStyledHeaderProps>`
 		content: '';
 		width: 2px;
 		height: 191px;
-		background-color: ${(props) => props.theme.color.gray};
+		background-color: ${({ theme }) => theme.color.gray};
 		position: fixed;
 		top: 0;
 		z-index: 11111;

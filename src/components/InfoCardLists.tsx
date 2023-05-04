@@ -1,11 +1,18 @@
-import { FC, Fragment, memo } from 'react';
+import { FC, Fragment, useMemo } from 'react';
 import { InfoCard, InfoCardProps } from './InfoCard';
 
-interface InfoCardListsProps {
-	info: InfoCardProps[];
-}
+export const InfoCardLists: FC = () => {
+	const info = useMemo<InfoCardProps[]>(
+		() => [
+			{ title: 'Language', description: ['JavaScript', 'TypeScript'] },
+			{ title: 'Databases', description: ['PostgreSQL', 'Mongo'] },
+			{ title: 'Other', description: ['HTML', 'CSS', 'EJS', 'SCSS', 'REST'] },
+			{ title: 'Tools', description: ['Figma', 'Git'] },
+			{ title: 'Frameworks', description: ['React', 'Express.js'] },
+		],
+		[]
+	);
 
-export const InfoCardLists: FC<InfoCardListsProps> = memo(({ info }) => {
 	return (
 		<Fragment>
 			{!!info.length &&
@@ -14,4 +21,4 @@ export const InfoCardLists: FC<InfoCardListsProps> = memo(({ info }) => {
 				))}
 		</Fragment>
 	);
-});
+};

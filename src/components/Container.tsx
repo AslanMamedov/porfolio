@@ -1,11 +1,11 @@
 import { FC, ReactNode } from 'react';
 import styled from 'styled-components';
 
-interface IContainerProps {
+interface ContainerProps {
 	children: ReactNode;
 }
 
-export const Container: FC<IContainerProps> = ({ children }) => {
+export const Container: FC<ContainerProps> = ({ children }) => {
 	return <StyledContainer className="container">{children}</StyledContainer>;
 };
 

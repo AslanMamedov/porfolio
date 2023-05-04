@@ -1,27 +1,15 @@
-import { InfoCardProps } from 'components/InfoCard';
+import { FC } from 'react';
 import { InfoCardLists, Title } from 'components/index';
 import { IconDots } from 'icons/index';
-import { useMemo } from 'react';
 import styled from 'styled-components';
 
-export const AboutSkills = () => {
-	const info = useMemo<InfoCardProps[]>(
-		() => [
-			{ title: 'Language', description: ['JavaScript', 'TypeScript'] },
-			{ title: 'Databases', description: ['PostgreSQL', 'Mongo'] },
-			{ title: 'Other', description: ['HTML', 'CSS', 'EJS', 'SCSS', 'REST'] },
-			{ title: 'Tools', description: ['Figma', 'Git'] },
-			{ title: 'Frameworks', description: ['React', 'Express.js'] },
-		],
-		[]
-	);
-
+export const AboutSkills: FC = () => {
 	return (
 		<StyledSlillsContainer>
 			<Title text="skills" />
 			<StyledSkillsList>
 				<StyledRightSideDots />
-				<InfoCardLists info={info} />
+				<InfoCardLists />
 			</StyledSkillsList>
 		</StyledSlillsContainer>
 	);

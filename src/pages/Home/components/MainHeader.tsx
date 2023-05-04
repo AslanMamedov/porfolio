@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import { FC } from 'react';
 import { ImageProfile } from '.';
 import { InfoProfile } from './InfoProfile';
-import { FC } from 'react';
+import styled from 'styled-components';
 
 export const MainHeader: FC = () => {
 	return (

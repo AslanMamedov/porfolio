@@ -1,15 +1,10 @@
-import { IconType } from 'icons/index';
-import styled from 'styled-components';
-import { SocialLink } from './SocialLink';
 import { FC, memo } from 'react';
-
-export interface ISocialMedia {
-	icon: IconType;
-	href: string;
-}
+import { SocialLink } from './SocialLink';
+import { SocialMedia } from 'type/index';
+import styled from 'styled-components';
 
 interface SocialMediaListProps {
-	socialMedia: ISocialMedia[];
+	socialMedia: SocialMedia[];
 }
 
 export const SocialMediaList: FC<SocialMediaListProps> = memo(({ socialMedia = [] }) => {

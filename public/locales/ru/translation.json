@@ -20,5 +20,19 @@
 	"quote-author": " Теодор Рузвельт",
 	"small-projects": "мини-приложения",
 	"complete-apps": "законченные-приложения",
-	"my-fun-facts": "веселые-факты-обо-мне"
+	"my-fun-facts": "веселые-факты-обо-мне",
+	"all-media": "социальные-сети",
+	"contact-subtitle": "Меня интересуют возможности фриланса. Однако, если у вас есть другой запрос или вопрос, не стесняйтесь обращаться ко мне.",
+	"view-all": "Посмотреть все",
+	"message": "Связаться со мной",
+	"demo": "Демо",
+
+	"code": "Код",
+	"contact-me": "Связаться со мной!!",
+	"read-more": "Больше информации",
+	"about-name": "Привет, меня зовут Аслан!",
+	"about-who-am-i": "Кто я такой ?",
+	"about-description-one": "I’m a self-taught front-end developer based in Kyiv, Ukraine. I can develop responsive websites from scratch and raise them into modern user-friendly web experiences.",
+	"about-description-two": "Transforming my creativity and knowledge into a websites has been my passion for over a year. I have been helping various clients to establish their presence online. I always strive to learn about the newest technologies and frameworks.",
+	"wors-subtitle": "Список моих проектов"
 }

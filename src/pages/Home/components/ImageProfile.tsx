@@ -1,8 +1,9 @@
+import { FC } from 'react';
 import { InfoText } from 'components/InfoText';
 import { IconDots, IconFigure } from 'icons/index';
 import styled from 'styled-components';
 
-export const ImageProfile = () => {
+export const ImageProfile: FC = () => {
 	return (
 		<StyledRightSide className="right">
 			<StyledImageContainer className="image-container">
@@ -11,7 +12,7 @@ export const ImageProfile = () => {
 				<StyledIconDots />
 			</StyledImageContainer>
 			<StyledTextInfo>
-				<InfoText box textLight={'main-image-portfolio'} text={'portfolio'} />
+				<InfoText box textLight={'portfolio'} text={'main-image-portfolio'} />
 			</StyledTextInfo>
 		</StyledRightSide>
 	);

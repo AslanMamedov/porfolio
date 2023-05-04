@@ -1,5 +1,5 @@
-import { IconDots, IconFigure } from 'icons/index';
 import { FC, Fragment } from 'react';
+import { IconDots, IconFigure } from 'icons/index';
 import styled from 'styled-components';
 
 export const Figures: FC = () => {
@@ -35,7 +35,7 @@ const StyledFiguresBoxBig = styled.span`
 	height: 86px;
 	display: block;
 	margin-right: 36px;
-	border: 1px solid ${(props) => props.theme.color.gray};
+	border: 1px solid ${({ theme }) => theme.color.gray};
 `;
 const StyledFiguresBoxSmall = styled(StyledFiguresBoxBig)`
 	width: 52px;

@@ -2,12 +2,12 @@ import { FC, Fragment } from 'react';
 import styled from 'styled-components';
 import { Anchor } from './Anchor';
 
-interface PortfolioCardProps {
+export interface PortfolioCardProps {
 	imgSrc?: string;
 	tools: string[];
 	description: string;
 	title: string;
-	linkDemo: string;
+	linkDemo?: string;
 	linkCode?: string;
 }
 
@@ -16,7 +16,7 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({
 	imgSrc = undefined,
 	title = '',
 	tools = [],
-	linkDemo = '',
+	linkDemo = undefined,
 	linkCode = undefined,
 }) => {
 	return (
@@ -34,9 +34,25 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({
 				{title && <StyledCardDescription>{title}</StyledCardDescription>}
 
 				<StyledButtonContainer>
-					<Anchor title="Live" to={linkDemo} type="primary" icon={'<~>'} variant="primary" />
+					{linkDemo && (
+						<Anchor
+							target="_blank"
+							title={'demo'}
+							to={linkDemo}
+							type="primary"
+							icon={'<~>'}
+							variant="primary"
+						/>
+					)}
 					{linkCode && (
-						<Anchor title="Cached" to={linkCode} type="lightgray" icon={'>'} variant="lightgray" />
+						<Anchor
+							title="code"
+							to={linkCode}
+							type="lightgray"
+							icon={'>'}
+							target="_blank"
+							variant="lightgray"
+						/>
 					)}
 				</StyledButtonContainer>
 			</StyledBottom>
@@ -46,18 +62,18 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({
 
 const StyledCardContainer = styled.div`
 	width: 331px;
-	border: 1px solid ${(props) => props.theme.color.gray};
+	border: 1px solid ${({ theme }) => theme.color.gray};
 `;
 
 const StyledMiddle = styled.div`
-	color: ${(props) => props.theme.color.gray};
+	color: ${({ theme }) => theme.color.gray};
 	width: 100%;
 	padding: 8px;
 	font-size: 16px;
 	font-weight: 400;
 	min-height: 37px;
 	line-height: 21px;
-	border-bottom: 1px solid ${(props) => props.theme.color.gray};
+	border-bottom: 1px solid ${({ theme }) => theme.color.gray};
 `;
 const StyledBottom = styled.div`
 	padding: 16px;
@@ -68,12 +84,12 @@ const StyledTopImage = styled.img`
 	height: 201px;
 	display: block;
 	object-fit: cover;
-	border-bottom: 1px solid ${(props) => props.theme.color.gray};
+	border-bottom: 1px solid ${({ theme }) => theme.color.gray};
 `;
 
 const StyledButtonContainer = styled.div`
 	flex: 1 1 auto;
-	span {
+	a {
 		&:first-child {
 			margin-right: 16px;
 		}
@@ -88,7 +104,7 @@ const StyledCardTitle = styled.h3`
 	word-wrap: break-word;
 `;
 const StyledCardDescription = styled.p`
-	color: ${(props) => props.theme.color.gray};
+	color: ${({ theme }) => theme.color.gray};
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 21px;

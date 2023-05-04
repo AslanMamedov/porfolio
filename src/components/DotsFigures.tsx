@@ -26,7 +26,7 @@ const StyledDotsList = styled.li`
 	width: 4px;
 	height: 4px;
 	border-radius: 100%;
-	background-color: ${(props) => props.theme.color.gray};
+	background-color: ${({ theme }) => theme.color.gray};
 
 	&:not(:first-child) {
 		margin-left: 21px;

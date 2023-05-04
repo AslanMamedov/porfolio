@@ -4,17 +4,17 @@ import { useLocation } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 interface NavigationTitleProps {
-	subtitle: string;
+	subtitle?: string;
 }
 
-export const NavigationTitle: FC<NavigationTitleProps> = memo(({ subtitle }) => {
+export const NavigationTitle: FC<NavigationTitleProps> = memo(({ subtitle = undefined }) => {
 	const { t } = useTranslation();
 	const location = useLocation();
 
 	return (
 		<StyledTitle>
 			<StyledLine>/</StyledLine>
-			{t(`${location.pathname.split('/')[1]}`)} <StyledSubtitle>{subtitle}</StyledSubtitle>
+			{t(`${location.pathname.split('/')[1]}`)} {subtitle && <StyledSubtitle>{t(subtitle)}</StyledSubtitle>}
 		</StyledTitle>
 	);
 });
@@ -30,7 +30,7 @@ const StyledTitle = styled.div`
 `;
 const StyledLine = styled.span`
 	${StyledFonts}
-	color: ${(props) => props.theme.color.primary};
+	color: ${({ theme }) => theme.color.primary};
 `;
 const StyledSubtitle = styled.p`
 	font-weight: 400;

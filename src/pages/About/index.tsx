@@ -1,14 +1,14 @@
-import { Container, NavigationTitle } from 'components/index';
-import styled from 'styled-components';
 import { FC } from 'react';
-import { AboutDescription, AboutFactors, AboutSkills } from './components';
+import { NavigationTitle, Container } from 'components/index';
+import { AboutSkills, AboutFactors, AboutInfo } from './components';
+import styled from 'styled-components';
 
 const About: FC = () => {
 	return (
 		<Container>
 			<StyledWorsHeader>
-				<NavigationTitle subtitle={'Who am i?'} />
-				<AboutDescription />
+				<NavigationTitle subtitle={'about-who-am-i'} />
+				<AboutInfo />
 				<AboutSkills />
 				<AboutFactors />
 			</StyledWorsHeader>

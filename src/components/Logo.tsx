@@ -1,5 +1,5 @@
-import { IconLogo } from 'icons/index';
 import { FC } from 'react';
+import { IconLogo } from 'icons/index';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 

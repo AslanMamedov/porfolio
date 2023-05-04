@@ -1,7 +1,8 @@
+import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
-export const Quote = () => {
+export const Quote: FC = () => {
 	const { t } = useTranslation();
 
 	return (
@@ -31,7 +32,7 @@ const StyledQuote = styled.section`
 		top: 50%;
 		transform: translateY(-50%);
 		right: -247px;
-		border: 1px solid ${(props) => props.theme.color.gray};
+		border: 1px solid ${({ theme }) => theme.color.gray};
 
 		position: absolute;
 
@@ -58,7 +59,7 @@ const StyledQuoteContainer = styled.div`
 `;
 
 const StyledQuoteText = styled.div`
-	border: 1px solid ${(props) => props.theme.color.gray};
+	border: 1px solid ${({ theme }) => theme.color.gray};
 	padding: 32px;
 	font-weight: 500;
 	font-size: 24px;
@@ -67,7 +68,7 @@ const StyledQuoteText = styled.div`
 	position: relative;
 `;
 const StyledQuoteAuthor = styled.div`
-	border: 1px solid ${(props) => props.theme.color.gray};
+	border: 1px solid ${({ theme }) => theme.color.gray};
 	padding: 16px;
 	font-weight: 400;
 	font-size: 24px;
@@ -82,7 +83,7 @@ const StyledQuoteTop = styled.span`
 	left: 11px;
 	top: 10px;
 	z-index: 11;
-	color: ${(props) => props.theme.color.gray};
+	color: ${({ theme }) => theme.color.gray};
 	font-size: 85px;
 	&::after {
 		content: '';
@@ -91,7 +92,7 @@ const StyledQuoteTop = styled.span`
 		display: block;
 		top: -33px;
 		z-index: -1;
-		background-color: ${(props) => props.theme.color.main};
+		background-color: ${({ theme }) => theme.color.main};
 		position: absolute;
 	}
 `;
@@ -100,7 +101,7 @@ const StyledQuoteBottom = styled.span`
 	bottom: -40px;
 	right: 10px;
 	z-index: 11;
-	color: ${(props) => props.theme.color.gray};
+	color: ${({ theme }) => theme.color.gray};
 	font-size: 85px;
 	&::after {
 		content: '';
@@ -109,7 +110,7 @@ const StyledQuoteBottom = styled.span`
 		display: block;
 		top: -22px;
 		z-index: -1;
-		background-color: ${(props) => props.theme.color.main};
+		background-color: ${({ theme }) => theme.color.main};
 		position: absolute;
 	}
 `;

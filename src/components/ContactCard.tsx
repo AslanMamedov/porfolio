@@ -1,14 +1,17 @@
+import { FC } from 'react';
 import { IconDiscord, IconEmail } from 'icons/index';
-import styled from 'styled-components';
 import { SocialLink } from './SocialLink';
+import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
 
-export const ContactCard = () => {
+export const ContactCard: FC = () => {
+	const { t } = useTranslation();
 	return (
 		<StyledContactCardContainer>
-			<StyledTitle>Mssage me here</StyledTitle>
+			<StyledTitle>{t('message')}</StyledTitle>
 			<StyledLinkLists>
 				<StyledLinks>
-					<SocialLink icon={IconDiscord} text={'!Aslan'} />
+					<SocialLink icon={IconDiscord} text={'Aslan'} />
 				</StyledLinks>
 				<StyledLinks>
 					<SocialLink icon={IconEmail} text={'aslan94mamedov49@gmail.com'} />
@@ -21,7 +24,7 @@ export const ContactCard = () => {
 const StyledContactCardContainer = styled.div`
 	min-width: 204px;
 	padding: 16px;
-	border: 1px solid ${(props) => props.theme.color.gray};
+	border: 1px solid ${({ theme }) => theme.color.gray};
 	@media (max-width: 1144px) {
 		margin-top: 12px;
 	}

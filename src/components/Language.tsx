@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { IconArrow } from 'icons/index';
 
-interface IArrow {
+interface StyledArrowProps {
 	show: boolean;
 }
 
@@ -115,7 +115,7 @@ const StyledLangItem = styled.span`
 	}
 `;
 
-const StyledArrow = styled.span<IArrow>`
+const StyledArrow = styled.span<StyledArrowProps>`
 	svg {
 		transform: ${(props) => (props.show ? 'rotate(180deg)' : 'rotate(0deg)')};
 		width: 10px;

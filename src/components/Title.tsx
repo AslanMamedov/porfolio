@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
-interface StyledLine {
+interface StyledStyledLineProps {
 	lineWidth?: string;
 }
 
@@ -35,16 +35,16 @@ const StyledTitle = styled.div`
 `;
 
 const StyledHash = styled.span`
-	color: ${(props) => props.theme.color.primary};
+	color: ${({ theme }) => theme.color.primary};
 `;
 
-const StyledLine = styled.span<StyledLine>`
-	width: ${(props) => props.lineWidth};
+const StyledLine = styled.span<StyledStyledLineProps>`
+	width: ${({ lineWidth }) => lineWidth};
 	flex: 1 1 auto;
 	@media (max-width: 1144px) {
 		width: 0;
 	}
 	height: 1px;
 	margin-left: 16px;
-	background-color: ${(props) => props.theme.color.primary};
+	background-color: ${({ theme }) => theme.color.primary};
 `;

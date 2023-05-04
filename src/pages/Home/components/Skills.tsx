@@ -1,9 +1,8 @@
-import { InfoCard } from 'components/InfoCard';
-import { Figures, Title } from 'components/index';
-
+import { FC } from 'react';
+import { Figures, InfoCardLists, Title } from 'components/index';
 import styled from 'styled-components';
 
-export const Skills = () => {
+export const Skills: FC = () => {
 	return (
 		<StyledSlillsContainer>
 			<Title text="skills" lineWidth="239px" />
@@ -12,15 +11,7 @@ export const Skills = () => {
 					<Figures />
 				</StyledSlillsLeftSide>
 				<StyledSlillsRightSide>
-					<InfoCard title={'Language'} description={['JavaScript', 'TypeScript']} />
-					<InfoCard title={'Databases'} description={['PostgreSQL', 'Mongo']} />
-					<InfoCard title={'Other'} description={['HTML', 'CSS', 'EJS', 'SCSS', 'REST']} />
-					<InfoCard title={'Tools'} description={['Figma', 'Git']} />
-					<InfoCard title={'Frameworks'} description={['React', 'Express.js']} />
-					{/* <StyledSkillCardGap>
-					</StyledSkillCardGap>
-					<StyledSkillCardGap>
-					</StyledSkillCardGap> */}
+					<InfoCardLists />
 				</StyledSlillsRightSide>
 			</StyledSlillsContent>
 		</StyledSlillsContainer>

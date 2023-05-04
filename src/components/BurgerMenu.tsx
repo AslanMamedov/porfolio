@@ -1,7 +1,7 @@
-import { IconBurgerLine, IconBurgerX } from 'icons/index';
-import styled from 'styled-components';
-import { Logo } from '.';
 import { FC, memo } from 'react';
+import { IconBurgerLine, IconBurgerX } from 'icons/index';
+import { Logo } from './Logo';
+import styled from 'styled-components';
 
 interface BurgerMenuProps {
 	showMenu: boolean;
@@ -47,5 +47,5 @@ const StyledBurgerMenuContainer = styled.div`
 	flex: 1 1 auto;
 	width: 100vw;
 	padding-left: 35px;
-	color: ${(props) => props.theme.color.white};
+	color: ${({ theme }) => theme.color.white};
 `;

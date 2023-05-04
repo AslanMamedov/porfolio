@@ -1,9 +1,9 @@
-import { InfoText } from 'components/InfoText';
-import { Title } from 'components/Title';
+import { FC } from 'react';
+import { InfoText, Title } from 'components/index';
 import { IconDots, IconFigure } from 'icons/index';
 import styled from 'styled-components';
 
-export const AboutFactors = () => {
+export const AboutFactors: FC = () => {
 	return (
 		<StyledFunFactorsContainer>
 			<Title text="my-fun-facts" />
@@ -32,7 +32,7 @@ const StyledFunFactorsContainer = styled.div`
 		height: 155px;
 		top: 70px;
 		left: -270px;
-		border: 1px solid ${(props) => props.theme.color.gray};
+		border: 1px solid ${({ theme }) => theme.color.gray};
 	}
 `;
 

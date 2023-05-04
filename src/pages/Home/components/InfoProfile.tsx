@@ -1,8 +1,9 @@
-import { Anchor } from 'components/index';
+import { FC } from 'react';
+import { Anchor, Text } from 'components/index';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
-export const InfoProfile = () => {
+export const InfoProfile: FC = () => {
 	const { t } = useTranslation();
 	return (
 		<StyledLefSide>
@@ -10,7 +11,7 @@ export const InfoProfile = () => {
 				{t('name')} {t('is')} <StyledMarkerText>Frontend</StyledMarkerText> {t('and')}
 				<StyledMarkerText> Backend {t('developer')}</StyledMarkerText>
 			</StyledInfoTitle>
-			<StyledSubTitle>{t('main-subtitle')}</StyledSubTitle>
+			<Text text={'main-subtitle'} />
 			<StyledAnchor title={t('main-link-button')} to="/contacts" variant="primary" />
 		</StyledLefSide>
 	);
@@ -34,19 +35,7 @@ const StyledInfoTitle = styled.div`
 
 const StyledMarkerText = styled.p`
 	display: inline;
-	color: ${(props) => props.theme.color.primary};
-`;
-
-const StyledSubTitle = styled.h2`
-	margin-top: 32px;
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 25px;
-	max-width: 508px;
-	@media (max-width: 1144px) {
-		text-align: center;
-	}
-	color: ${(props) => props.theme.color.gray};
+	color: ${({ theme }) => theme.color.primary};
 `;
 
 const StyledAnchor = styled(Anchor)`
