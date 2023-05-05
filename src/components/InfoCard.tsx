@@ -35,11 +35,14 @@ const StyledInfoTitle = styled.h3`
 const StyledInfoDescription = styled.div`
 	border-top: 1px solid ${({ theme }) => theme.color.gray};
 	padding: 8px;
-	word-break: break-all;
 	font-weight: 400;
 	font-size: 16px;
 	color: ${({ theme }) => theme.color.gray};
 	line-height: 21px;
+	width: 100%;
 `;
 
-const StyledInfoDescriptionLists = styled.span``;
+const StyledInfoDescriptionLists = styled.span`
+	display: inline;
+	width: 100%;
+`;

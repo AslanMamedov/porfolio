@@ -1,7 +1,9 @@
 import { FC } from 'react';
-import { IconDiscord, IconEmail } from 'icons/index';
 import { SocialLink } from './SocialLink';
 import { useTranslation } from 'react-i18next';
+import { MdEmail } from 'react-icons/md';
+import { ImLocation2 } from 'react-icons/im';
+import { AiFillPhone } from 'react-icons/ai';
 import styled from 'styled-components';
 
 export const ContactCard: FC = () => {
@@ -10,12 +12,19 @@ export const ContactCard: FC = () => {
 		<StyledContactCardContainer>
 			<StyledTitle>{t('message')}</StyledTitle>
 			<StyledLinkLists>
-				<StyledLinks>
-					<SocialLink icon={IconDiscord} text={'Aslan'} />
-				</StyledLinks>
-				<StyledLinks>
-					<SocialLink icon={IconEmail} text={'aslan94mamedov49@gmail.com'} />
-				</StyledLinks>
+				<StyledLinks
+					icon={ImLocation2}
+					text={'Azerbaijan-Baku'}
+					href="https://goo.gl/maps/6op5FKWshfRYgdA4A"
+					target="_blank"
+				/>
+				<StyledLinks icon={AiFillPhone} text={'+994(55)385-74-84'} href="tel:994553857484" />
+
+				<StyledLinks
+					icon={MdEmail}
+					text={'aslan94mamedov49@gmail.com'}
+					href="mailto:aslan94mamedov49@gmail.com"
+				/>
 			</StyledLinkLists>
 		</StyledContactCardContainer>
 	);
@@ -36,10 +45,10 @@ const StyledTitle = styled.span`
 	line-height: 21px;
 `;
 
-const StyledLinkLists = styled.ul`
+const StyledLinkLists = styled.div`
 	display: flex;
 	margin-top: 16px;
 	flex-direction: column;
 	gap: 8px;
 `;
-const StyledLinks = styled.li``;
+const StyledLinks = styled(SocialLink)``;

@@ -2,22 +2,86 @@ import { FC, createContext, useMemo } from 'react';
 import { NavigationTitle, Container } from 'components/index';
 import { CompleteProjects, SmallProjects } from './components';
 import { PortfolioCardProps } from 'components/PortfolioCard';
+import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
-
 export const MiniProjects = createContext<PortfolioCardProps[]>([]);
 
 const Works: FC = () => {
 	const miniPropjects = useMemo(
 		() => [
-			{ description: '', linkDemo: '', title: '', tools: [], imgSrc: '', linkCode: '' },
-			{ description: '', linkDemo: '', title: '', tools: [], imgSrc: '', linkCode: '' },
-			{ description: '', linkDemo: '', title: '', tools: [], imgSrc: '', linkCode: '' },
-			{ description: '', linkDemo: '', title: '', tools: [], imgSrc: '', linkCode: '' },
+			{
+				description: 'Мини проигрыватель',
+				title: 'Mini circle player',
+				tools: ['React,', 'TypeScript,', 'SCSS,', 'React-icons,', 'Roundy'],
+				imgSrc: '/src/assets/images/porfolio/player.png',
+				linkCode: 'https://github.com/AslanMamedov/circle-player',
+			},
+			{
+				description: 'Слайдер',
+				title: 'Slider',
+				tools: ['HTML,', 'CSS,', 'JavaScript'],
+				imgSrc: '/src/assets/images/porfolio/slider.png',
+				linkCode: 'https://github.com/AslanMamedov/Marathon/tree/master/Slider',
+			},
+			{
+				description: 'Слайдер',
+				title: 'Slider',
+				tools: ['HTML,', 'CSS,', 'JavaScript'],
+				imgSrc: '/src/assets/images/porfolio/slider-car.png',
+				linkCode: 'https://github.com/AslanMamedov/Marathon/tree/master/Card',
+			},
+			{
+				description: 'Мини игра',
+				title: 'Mini game',
+				tools: ['HTML,', 'CSS,', 'JavaScript'],
+				imgSrc: '/src/assets/images/porfolio/aim.png',
+				linkCode: 'https://github.com/AslanMamedov/Marathon/tree/master/Game',
+			},
+			{
+				description: 'Мини игра',
+				title: 'Mini game',
+				tools: ['HTML,', 'CSS,', 'JavaScript'],
+				imgSrc: '/src/assets/images/porfolio/hover.png',
+				linkCode: 'https://github.com/AslanMamedov/Marathon/tree/master/Board',
+			},
+			{
+				description: 'Мини игра',
+				title: 'Drag Drop',
+				tools: ['HTML,', 'CSS,', 'JavaScript'],
+				imgSrc: '/src/assets/images/porfolio/drag-drop.png',
+				linkCode: 'https://github.com/AslanMamedov/Marathon/tree/master/Drag%26Drop',
+			},
+			{
+				description: 'Эквалайзер',
+				title: 'Audi equalizer',
+				tools: ['HTML,', 'CSS,', 'JavaScript'],
+				imgSrc: '/src/assets/images/porfolio/audio.png',
+				linkCode: 'https://github.com/AslanMamedov/mediastream',
+			},
+			{
+				description: 'Рейтинг',
+				title: 'Star rating',
+				tools: ['HTML,', 'CSS,', 'JavaScript'],
+				imgSrc: '/src/assets/images/porfolio/rating.png',
+				linkCode: 'https://github.com/AslanMamedov/miniProjects/tree/master/Star',
+			},
+			{
+				description: 'Прогресс скрола',
+				title: 'Scroll progress',
+				tools: ['HTML,', 'CSS,', 'JavaScript'],
+				imgSrc: '/src/assets/images/porfolio/scroll.png',
+				linkCode: 'https://github.com/AslanMamedov/miniProjects/tree/master/ScrollTop',
+			},
 		],
 		[]
 	);
 	return (
 		<MiniProjects.Provider value={miniPropjects}>
+			<Helmet>
+				<meta charSet="utf-8" />
+				<title>Works</title>
+				<link rel="canonical" href="http://mysite.com/example" />
+			</Helmet>
 			<Container>
 				<StyledWorsHeader>
 					<NavigationTitle subtitle={'wors-subtitle'} />

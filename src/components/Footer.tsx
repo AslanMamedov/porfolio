@@ -17,8 +17,8 @@ export const Footer: FC<FooterProps> = memo(({ socialMedia }) => {
 	return (
 		<StyledFooter className="footer">
 			<Container>
-				<StyledMain>
-					<StyledTopContainer>
+				<StyledMain className="footer-main">
+					<StyledTopContainer className="footer-top">
 						<StyledLogoContainer>
 							<StyledLogo>
 								<Logo />
@@ -70,10 +70,14 @@ const StyledCopyright = styled.h3`
 	${StyledFonts}
 	margin-top: 48px;
 	text-align: center;
+	width: 100%;
+	display: block;
+	padding: 0 15px;
 	color: ${({ theme }) => theme.color.gray};
 	@media (max-width: 1144px) {
 		word-wrap: break-word;
 		margin-top: 12px;
+		/* width: 360px; */
 	}
 `;
 
@@ -96,8 +100,10 @@ const StyledLogo = styled(StyledSocialMediaContainer)`
 
 const StyledTopContainer = styled(StyledLogo)`
 	justify-content: space-between;
-	@media (max-width: 508px) {
+	width: 100%;
+	@media (max-width: 690px) {
 		flex-wrap: wrap;
+
 		justify-content: center;
 	}
 `;
@@ -109,14 +115,21 @@ const StyledLogoContainer = styled(StyledLogo)`
 
 const StyledMain = styled(StyledLogoContainer)`
 	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	justify-content: space-between;
-	padding: 0 15px;
+	padding: 0;
 `;
 
 const StyledAnchor = styled.a`
 	${StyledFonts}
 	margin-left: 24px;
 	color: ${({ theme }) => theme.color.gray};
+	@media (max-width: 1144px) {
+		margin-left: 4px;
+	}
 `;
 
 const StyledDescription = styled.h3`

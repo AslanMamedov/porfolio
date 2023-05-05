@@ -10,7 +10,7 @@ interface InfoTextProps {
 export const InfoText: FC<InfoTextProps> = ({ box = false, text, textLight }) => {
 	const { t } = useTranslation();
 	return (
-		<StyledPortfolio>
+		<StyledPortfolio className="info-text">
 			{box && <StyledBox />}
 			<StyledMarkerPortfolio>{t(text)}</StyledMarkerPortfolio>
 			{t(textLight)}
@@ -27,9 +27,8 @@ const StyledPortfolio = styled.div`
 	display: flex;
 	align-items: center;
 
-	@media (max-width: 1144px) {
-		margin-right: 0;
-		width: 354px;
+	@media (max-width: 1140px) {
+		width: 100%;
 		padding: 8px;
 	}
 `;
@@ -45,7 +44,8 @@ const StyledMarkerPortfolio = styled.p`
 const StyledBox = styled.span`
 	width: 16px;
 	height: 16px;
-	display: block;
+	display: inline;
 	margin-right: 4px;
 	background-color: ${({ theme }) => theme.color.primary};
+
 `;

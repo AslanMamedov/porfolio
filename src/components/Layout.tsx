@@ -1,5 +1,4 @@
 import { FC, useMemo } from 'react';
-import { IconGithub, IconLinkedin, IconTelegram, IconTwitter } from 'icons/index';
 import { SocialMediaList } from './SocialMediaList';
 import { SocialMedia } from 'type/index';
 import { Footer } from './Footer';
@@ -7,15 +6,23 @@ import { Main } from './Main';
 import { Header } from './Header';
 import { Outlet } from 'react-router-dom';
 import theme from 'styled-theming';
+import { AiFillGithub, AiFillLinkedin, AiFillTwitterCircle, AiFillSkype, AiFillInstagram } from 'react-icons/ai';
+import { RiTelegramFill } from 'react-icons/ri';
+import { IoLogoWhatsapp } from 'react-icons/io';
+import { SiLinktree } from 'react-icons/si';
 import styled, { css } from 'styled-components';
 
 export const Layout: FC = () => {
 	const socialMediaList = useMemo<SocialMedia[]>(() => {
 		return [
-			{ icon: IconLinkedin, href: 'https://www.linkedin.com/in/aslanmammadov/' },
-			{ icon: IconTwitter, href: 'https://twitter.com/AslanMamedov94' },
-			{ icon: IconGithub, href: 'https://github.com/AslanMamedov' },
-			{ icon: IconTelegram, href: 'https://t.me/ASLANM94' },
+			{ icon: AiFillLinkedin, href: 'https://www.linkedin.com/in/aslanmammadov/' },
+			{ icon: SiLinktree, href: 'https://linktr.ee/aslanmammadov' },
+			{ icon: AiFillGithub, href: 'https://github.com/AslanMamedov' },
+			{ icon: AiFillInstagram, href: 'https://www.instagram.com/_aslan_mammadov_/' },
+			{ icon: RiTelegramFill, href: 'https://t.me/ASLANM94' },
+			{ icon: IoLogoWhatsapp, href: 'https://wa.me/994553857484' },
+			{ icon: AiFillTwitterCircle, href: 'https://twitter.com/AslanMamedov94' },
+			{ icon: AiFillSkype, href: 'https://join.skype.com/invite/Jgh7c4dcAqXe' },
 		];
 	}, []);
 

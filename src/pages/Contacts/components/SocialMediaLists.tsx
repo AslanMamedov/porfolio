@@ -22,4 +22,8 @@ const StyledSocialMediaList = styled.div`
 	display: flex;
 	gap: 22px;
 	margin-top: 22px;
+	@media (max-width: 690px) {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
 `;

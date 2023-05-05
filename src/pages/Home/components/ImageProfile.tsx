@@ -24,8 +24,23 @@ const StyledRightSide = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	flex: 1 1 auto;
 	@media (max-width: 1144px) {
 		margin-top: 24px;
+		width: 360px;
+	}
+	@media (max-width: 365px) {
+		margin-right: 0;
+		width: 360px;
+	}
+`;
+const StyledImageContainer = styled.div`
+	position: relative;
+	width: 457px;
+	height: 386px;
+	@media (max-width: 1144px) {
+		width: 345px;
+		height: 304px;
 	}
 `;
 
@@ -35,8 +50,14 @@ const StyledImage = styled.img`
 	max-width: 100%;
 	max-height: 100%;
 	top: 0;
+	display: block;
 	left: 50%;
 	transform: translateX(-50%);
+	@media (max-width: 1144px) {
+		margin-right: 0;
+		width: 340px;
+		top: 17px;
+	}
 `;
 
 const StyledIconFigure = styled(IconFigure)`
@@ -69,21 +90,15 @@ const StyledIconDots = styled(IconDots)`
 	}
 `;
 
-const StyledImageContainer = styled.div`
-	position: relative;
-	width: 457px;
-	height: 386px;
-	@media (max-width: 1144px) {
-		width: 360px;
-		height: 304px;
-	}
-`;
+
 
 const StyledTextInfo = styled.div`
 	margin-right: 19px;
 	width: 402px;
 	@media (max-width: 1144px) {
-		margin-right: 0;
+		margin-right: 0px;
 		width: 354px;
+		padding: 0 15px;
+
 	}
 `;

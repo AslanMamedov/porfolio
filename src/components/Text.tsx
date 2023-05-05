@@ -12,14 +12,13 @@ export const Text: FC<TextProps> = ({ text }) => {
 	return <StyledSubTitle>{t(text)}</StyledSubTitle>;
 };
 
-const StyledSubTitle = styled.h2`
-	margin-top: 32px;
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 25px;
-	max-width: 508px;
-	@media (max-width: 1144px) {
-		text-align: center;
-	}
-	color: ${(props) => props.theme.color.gray};
-`;
+const StyledSubTitle = styled.h2(({ theme }) => ({
+	fontWeight: 400,
+	fontSize: '16px',
+	lineHeight: '25px',
+	maxWidth: '508px',
+	'@media (maxWidth: 1144px)': {
+		textAlign: 'center',
+	},
+	color: theme.color.gray,
+}));

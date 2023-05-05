@@ -30,8 +30,8 @@ export const PortfolioCard: FC<PortfolioCardProps> = ({
 				</StyledMiddle>
 			)}
 			<StyledBottom>
-				{description && <StyledCardTitle>{description}</StyledCardTitle>}
-				{title && <StyledCardDescription>{title}</StyledCardDescription>}
+				{title && <StyledCardTitle>{title}</StyledCardTitle>}
+				{description && <StyledCardDescription>{description}</StyledCardDescription>}
 
 				<StyledButtonContainer>
 					{linkDemo && (

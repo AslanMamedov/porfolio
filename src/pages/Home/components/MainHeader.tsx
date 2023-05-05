@@ -21,4 +21,7 @@ const StyledSectionInfo = styled.section`
 		flex-wrap: wrap;
 		justify-content: center;
 	}
+	@media (max-width: 360px) {
+		width: 320px;
+	}
 `;

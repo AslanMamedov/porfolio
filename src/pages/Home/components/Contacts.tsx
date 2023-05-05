@@ -30,7 +30,7 @@ const StyledContactContent = styled.div`
 	margin-top: 45px;
 	display: flex;
 	justify-content: space-between;
-	@media (max-width: 755px) {
+	@media (max-width: 825px) {
 		margin-top: 20px;
 		flex-wrap: wrap;
 		gap: 10px;

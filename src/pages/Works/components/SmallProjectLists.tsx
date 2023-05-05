@@ -9,17 +9,7 @@ export const SmallProjectLists: FC = () => {
 	return (
 		<StyledSmallProjectLists>
 			{!!smallProjects.length &&
-				smallProjects.map(({ tools, description, title, linkCode, imgSrc, linkDemo }, index) => (
-					<PortfolioCard
-						key={index}
-						imgSrc={imgSrc}
-						tools={tools}
-						description={description}
-						title={title}
-						linkDemo={linkDemo}
-						linkCode={linkCode}
-					/>
-				))}
+				smallProjects.map((projects, index) => <PortfolioCard key={index} {...projects} />)}
 		</StyledSmallProjectLists>
 	);
 };

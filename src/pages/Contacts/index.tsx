@@ -2,11 +2,16 @@ import { FC } from 'react';
 import { Container, NavigationTitle } from 'components/index';
 import { IconInlineDots } from 'icons/index';
 import { Content, Media } from './components';
+import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
-
 const Contacts: FC = () => {
 	return (
 		<Container>
+			<Helmet>
+				<meta charSet="utf-8" />
+				<title>Contacts</title>
+				<link rel="canonical" href="http://mysite.com/example" />
+			</Helmet>
 			<StyledContactContainer>
 				<StyledIcon />
 				<NavigationTitle />
