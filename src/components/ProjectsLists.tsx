@@ -2,6 +2,18 @@ import { FC, useMemo } from 'react';
 import { PortfolioCard, PortfolioCardProps } from './PortfolioCard';
 import styled from 'styled-components';
 
+const variants = {
+	hidden: {
+		opacity: 0,
+	},
+	visible: (i: number) => ({
+		opacity: 1,
+		transition: {
+			delay: i * 0.3,
+		},
+	}),
+};
+
 export const ProjectsLists: FC = () => {
 	const porfolios = useMemo<PortfolioCardProps[]>(
 		() => [
@@ -93,10 +105,21 @@ export const ProjectsLists: FC = () => {
 	);
 	return (
 		<StyledCardContainer>
-			{porfolios.length && porfolios.map((porfolio, index) => <PortfolioCard key={index} {...porfolio} />)}
+			{porfolios.length &&
+				porfolios.map((porfolio, index) => (
+					<PortfolioCard
+						initial="hidden"
+						animate="visible"
+						variants={variants}
+						custom={index + 1}
+						key={index}
+						{...porfolio}
+					/>
+				))}
 		</StyledCardContainer>
 	);
 };
+
 const StyledCardContainer = styled.div`
 	margin-top: 48px;
 	display: flex;

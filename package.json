@@ -13,6 +13,7 @@
     "@types/react-helmet": "^6.1.6",
     "@types/styled-components": "^5.1.26",
     "@types/styled-theming": "^2.2.5",
+    "framer-motion": "^10.12.8",
     "i18next": "^22.4.15",
     "i18next-browser-languagedetector": "^7.0.1",
     "i18next-http-backend": "^2.2.0",

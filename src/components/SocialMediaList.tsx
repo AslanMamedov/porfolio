@@ -2,10 +2,22 @@ import { FC, memo } from 'react';
 import { SocialLink } from './SocialLink';
 import { SocialMedia } from 'type/index';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 interface SocialMediaListProps {
 	socialMedia: SocialMedia[];
 }
+const variant = {
+	hidden: {
+		opacity: 0,
+	},
+	visible: (i: number) => ({
+		opacity: 1,
+		transition: {
+			delay: i * 0.2,
+		},
+	}),
+};
 
 export const SocialMediaList: FC<SocialMediaListProps> = memo(({ socialMedia = [] }) => {
 	return (
@@ -13,7 +25,15 @@ export const SocialMediaList: FC<SocialMediaListProps> = memo(({ socialMedia = [
 			<StyledSocialMediaListContainer className="social-media__container">
 				{socialMedia.map(({ icon, href }, index) => (
 					<StyledSocialMediaList key={index} className="social-media__item">
-						<SocialLink icon={icon} href={href} target="_blank" />
+						<SocialLink
+							initial="hidden"
+							animate="visible"
+							variants={variant}
+							custom={index + 1}
+							icon={icon}
+							href={href}
+							target="_blank"
+						/>
 					</StyledSocialMediaList>
 				))}
 			</StyledSocialMediaListContainer>
@@ -30,7 +50,7 @@ const StyledSocialMediaLists = styled.div`
 	}
 `;
 
-const StyledSocialMediaListContainer = styled.ul``;
+const StyledSocialMediaListContainer = styled(motion.ul)``;
 
 const StyledSocialMediaList = styled.li`
 	cursor: pointer;

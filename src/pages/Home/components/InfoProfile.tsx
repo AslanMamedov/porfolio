@@ -2,19 +2,46 @@ import { FC } from 'react';
 import { Anchor, Text } from 'components/index';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
+
+const variants = {
+	hidden: {
+		x: -1000,
+		opacity: 0,
+	},
+	visible: (custom: number) => ({ x: 0, opacity: 1, transition: { delay: custom * 0.4 } }),
+};
 
 export const InfoProfile: FC = () => {
 	const { t } = useTranslation();
+
 	return (
 		<StyledLefSide>
 			<StyledInfoTitle>
 				{t('name')} {t('is')} <StyledMarkerText>Frontend</StyledMarkerText> {t('and')}
 				<StyledMarkerText> Backend {t('developer')}</StyledMarkerText>
 			</StyledInfoTitle>
+
 			<Text text={'main-subtitle'} />
 			<StyledAnchorContainer>
-				<StyledAnchor title={t('main-link-button')} to="/contacts" variant="primary" />
-				<StyledDownload href="/public/aslan_mammadov.pdf" download={'aslan_mammadov.pdf'} variant="primary">
+				<StyledAnchor
+					initial={'hidden'}
+					animate={'visible'}
+					variants={variants}
+					custom={1}
+					title={t('main-link-button')}
+					to="/contacts"
+					variant="primary"
+				/>
+				<StyledDownload
+					initial={'hidden'}
+					animate={'visible'}
+					variants={variants}
+					custom={2}
+					href="/public/aslan_mammadov.pdf"
+					download={'aslan_mammadov.pdf'}
+					variant="lightgray"
+				>
 					Download CV
 				</StyledDownload>
 			</StyledAnchorContainer>
@@ -22,7 +49,7 @@ export const InfoProfile: FC = () => {
 	);
 };
 
-const StyledAnchorContainer = styled.div`
+const StyledAnchorContainer = styled(motion.div)`
 	display: flex;
 	gap: 16px;
 	align-items: center;
@@ -35,7 +62,7 @@ const StyledLefSide = styled.div`
 		margin-top: 34px;
 	}
 `;
-const StyledInfoTitle = styled.div`
+const StyledInfoTitle = styled(motion.div)`
 	font-weight: 600;
 	font-size: 32px;
 	line-height: 42px;
@@ -59,7 +86,7 @@ interface StyledAnchorProps {
 	variant: 'primary' | 'lightgray';
 }
 
-const StyledDownload = styled.a<StyledAnchorProps>`
+const StyledDownload = styled(motion.a)<StyledAnchorProps>`
 	padding: 10px 16px;
 	height: 38px;
 	display: inline-block;

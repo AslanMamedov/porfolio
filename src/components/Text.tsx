@@ -1,4 +1,5 @@
-import { FC } from 'react';
+import { motion } from 'framer-motion';
+import { FC, Ref, forwardRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
@@ -6,11 +7,13 @@ interface TextProps {
 	text: string;
 }
 
-export const Text: FC<TextProps> = ({ text }) => {
+const TextWithMotion: FC<TextProps> = forwardRef(({ text }, ref: Ref<HTMLHeadingElement>) => {
 	const { t } = useTranslation();
 
-	return <StyledSubTitle>{t(text)}</StyledSubTitle>;
-};
+	return <StyledSubTitle ref={ref}>{t(text)}</StyledSubTitle>;
+});
+
+export const Text = motion(TextWithMotion);
 
 const StyledSubTitle = styled.h2(({ theme }) => ({
 	fontWeight: 400,

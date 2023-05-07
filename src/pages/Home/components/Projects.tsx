@@ -7,6 +7,7 @@ import styled from 'styled-components';
 
 export const Projects: FC = () => {
 	const { t } = useTranslation();
+
 	return (
 		<StyledProjectsContainer>
 			<StyledFigureIcon />

@@ -1,19 +1,24 @@
-import { ComponentPropsWithoutRef, FC, memo } from 'react';
+import { ComponentPropsWithoutRef, FC, Ref, forwardRef, memo } from 'react';
 import { IconType } from 'icons/index';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 interface SocialLinkProps extends ComponentPropsWithoutRef<'a'> {
 	icon: IconType;
 	text?: string;
 }
 
-export const SocialLink: FC<SocialLinkProps> = memo(({ icon: Icon, text = undefined, ...props }) => {
-	return (
-		<StyledSocialMediaLink {...props}>
-			<Icon /> {text && <StyledSocialMediaText>{text}</StyledSocialMediaText>}
-		</StyledSocialMediaLink>
-	);
-});
+const SocialLinkMotion: FC<SocialLinkProps> = memo(
+	forwardRef(({ icon: Icon, text = undefined, ...props }, ref: Ref<HTMLAnchorElement>) => {
+		return (
+			<StyledSocialMediaLink {...props} ref={ref}>
+				<Icon /> {text && <StyledSocialMediaText>{text}</StyledSocialMediaText>}
+			</StyledSocialMediaLink>
+		);
+	})
+);
+
+export const SocialLink = motion(SocialLinkMotion);
 
 const StyledSocialMediaLink = styled.a`
 	cursor: pointer;

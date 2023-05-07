@@ -55,7 +55,11 @@ export const Navigation: FC<NavigationProps> = memo(({ links }) => {
 			setShowMenu(true);
 		}
 	}, [location.pathname]);
-
+	useEffect(() => {
+		if (location) {
+			window.scrollTo({ top: 0 });
+		}
+	}, [location]);
 	return (
 		<StyledNav className="nav">
 			{showButton && <ButtonUp />}
