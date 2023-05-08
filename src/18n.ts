@@ -13,7 +13,7 @@ const config = {
 	interpolation: {
 		escapeValue: false,
 	},
-	debug: true,
+	debug: false,
 };
 
 type Config = typeof config;
