@@ -3,6 +3,7 @@ import { IconInlineDots, IconDots } from 'icons/index';
 import { Title } from 'components/index';
 import { SmallProjectLists } from './SmallProjectLists';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 export const SmallProjects: FC = () => {
 	return (
@@ -15,7 +16,7 @@ export const SmallProjects: FC = () => {
 	);
 };
 
-const StyledSmallContaier = styled.div`
+const StyledSmallContaier = styled(motion.div)`
 	margin-top: 81px;
 	margin-bottom: 187px;
 	position: relative;

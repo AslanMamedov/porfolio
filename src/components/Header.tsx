@@ -52,7 +52,7 @@ export const Header: FC = () => {
 const StyledLine = styled(motion.span)`
 	width: 2px;
 	height: 191px;
-	background-color: ${({ theme }) => theme.color.gray};
+	background-color: ${({ theme }) => theme.color.green};
 	position: fixed;
 	top: 0;
 	z-index: 11111;

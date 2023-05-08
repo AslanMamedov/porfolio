@@ -39,8 +39,8 @@ const StyledImageContainer = styled.div`
 	width: 457px;
 	height: 386px;
 	@media (max-width: 1144px) {
-		width: 345px;
-		height: 304px;
+		width: 305px;
+		height: 386px;
 	}
 `;
 
@@ -56,7 +56,7 @@ const StyledImage = styled.img`
 	@media (max-width: 1144px) {
 		margin-right: 0;
 		width: 340px;
-		top: 17px;
+		top: 41px;
 	}
 `;
 

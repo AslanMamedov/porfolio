@@ -7,7 +7,7 @@ export const Logo: FC = () => {
 	const { t } = useTranslation();
 	return (
 		<StyledLogo className="logo">
-			<IconLogo className="logo__icon" />
+			{/* <IconLogo className="logo__icon" /> */}
 			<StyledTitle className="logo__text">{t('name')}</StyledTitle>
 		</StyledLogo>
 	);

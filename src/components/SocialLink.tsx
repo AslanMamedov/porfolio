@@ -33,20 +33,20 @@ const StyledSocialMediaLink = styled.a`
 	&:hover {
 		svg {
 			circle {
-				stroke: ${(props) => props.theme.color.white};
+				stroke: ${(props) => props.theme.color.green};
 				path {
-					stroke: ${(props) => props.theme.color.white};
-					fill: ${(props) => props.theme.color.white};
+					stroke: ${(props) => props.theme.color.green};
+					fill: ${(props) => props.theme.color.green};
 				}
-				fill: ${(props) => props.theme.color.white};
+				fill: ${(props) => props.theme.color.green};
 			}
 			path {
-				stroke: ${(props) => props.theme.color.white};
+				stroke: ${(props) => props.theme.color.green};
 			}
-			fill: ${(props) => props.theme.color.white};
+			fill: ${(props) => props.theme.color.green};
 		}
 		h3 {
-			color: ${(props) => props.theme.color.white};
+			color: ${(props) => props.theme.color.green};
 		}
 	}
 `;

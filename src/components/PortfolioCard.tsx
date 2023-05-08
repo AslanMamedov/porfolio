@@ -1,7 +1,6 @@
-import { FC, Fragment, Ref, forwardRef } from 'react';
+import { FC, Fragment } from 'react';
 import styled from 'styled-components';
 import { Anchor } from './Anchor';
-import { motion } from 'framer-motion';
 
 export interface PortfolioCardProps {
 	imgSrc?: string;
@@ -12,54 +11,54 @@ export interface PortfolioCardProps {
 	linkCode?: string;
 }
 
-const PortfolioCardMotion: FC<PortfolioCardProps> = forwardRef(
-	(
-		{ description = '', imgSrc = undefined, title = '', tools = [], linkDemo = undefined, linkCode = undefined },
-		ref: Ref<HTMLDivElement>
-	) => {
-		return (
-			<StyledCardContainer ref={ref}>
-				{imgSrc && <StyledTopImage src={imgSrc} alt={title} />}
-				{!!tools.length && (
-					<StyledMiddle>
-						{tools.map((tool, index) => (
-							<Fragment key={index}> {tool}</Fragment>
-						))}
-					</StyledMiddle>
-				)}
-				<StyledBottom>
-					{title && <StyledCardTitle>{title}</StyledCardTitle>}
-					{description && <StyledCardDescription>{description}</StyledCardDescription>}
+export const PortfolioCard: FC<PortfolioCardProps> = ({
+	description = '',
+	imgSrc = undefined,
+	title = '',
+	tools = [],
+	linkDemo = undefined,
+	linkCode = undefined,
+}) => {
+	return (
+		<StyledCardContainer>
+			{imgSrc && <StyledTopImage src={imgSrc} alt={title} />}
+			{!!tools.length && (
+				<StyledMiddle>
+					{tools.map((tool, index) => (
+						<Fragment key={index}> {tool}</Fragment>
+					))}
+				</StyledMiddle>
+			)}
+			<StyledBottom>
+				{title && <StyledCardTitle>{title}</StyledCardTitle>}
+				{description && <StyledCardDescription>{description}</StyledCardDescription>}
 
-					<StyledButtonContainer>
-						{linkDemo && (
-							<Anchor
-								target="_blank"
-								title={'demo'}
-								to={linkDemo}
-								type="primary"
-								icon={'<~>'}
-								variant="primary"
-							/>
-						)}
-						{linkCode && (
-							<Anchor
-								title="code"
-								to={linkCode}
-								type="lightgray"
-								icon={'>'}
-								target="_blank"
-								variant="lightgray"
-							/>
-						)}
-					</StyledButtonContainer>
-				</StyledBottom>
-			</StyledCardContainer>
-		);
-	}
-);
-
-export const PortfolioCard = motion(PortfolioCardMotion);
+				<StyledButtonContainer>
+					{linkDemo && (
+						<Anchor
+							target="_blank"
+							title={'demo'}
+							to={linkDemo}
+							type="primary"
+							icon={'<~>'}
+							variant="primary"
+						/>
+					)}
+					{linkCode && (
+						<Anchor
+							title="code"
+							to={linkCode}
+							type="lightgray"
+							icon={'>'}
+							target="_blank"
+							variant="lightgray"
+						/>
+					)}
+				</StyledButtonContainer>
+			</StyledBottom>
+		</StyledCardContainer>
+	);
+};
 
 const StyledCardContainer = styled.div`
 	width: 331px;

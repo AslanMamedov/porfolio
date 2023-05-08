@@ -97,7 +97,7 @@ const Works: FC = () => {
 				}}
 				exit={{ opacity: 0 }}
 			>
-				<StyledWorsHeader>
+				<StyledWorsHeader >
 					<NavigationTitle subtitle={'wors-subtitle'} />
 					<CompleteProjects />
 					{!!miniPropjects.length && <SmallProjects />}

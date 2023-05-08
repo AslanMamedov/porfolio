@@ -29,13 +29,19 @@ const About: FC = () => {
 			<StyledWorsHeader>
 				<NavigationTitle subtitle={'about-who-am-i'} />
 				<AboutInfo />
-				<AboutSkills />
-				<AboutFactors />
+				<StyledSlillsContainer>
+					<AboutSkills />
+				</StyledSlillsContainer>
+				{/* <AboutFactors /> */}
 			</StyledWorsHeader>
 		</Container>
 	);
 };
 export default About;
+
+const StyledSlillsContainer = styled.div`
+	margin-bottom: 150px;
+`;
 
 const StyledWorsHeader = styled.div`
 	margin-top: 53px;

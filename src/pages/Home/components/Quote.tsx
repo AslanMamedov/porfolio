@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
@@ -7,7 +8,22 @@ export const Quote: FC = () => {
 
 	return (
 		<StyledQuote>
-			<StyledQuoteContainer>
+			<StyledBox />
+			<StyledQuoteContainer
+				initial={{
+					y: 100,
+					opacity: 0,
+				}}
+				animate={{
+					y: 0,
+					opacity: 1,
+
+					transition: {
+						delay: 0.5,
+						ease: 'linear',
+					},
+				}}
+			>
 				<StyledQuoteText>
 					<StyledQuoteTop>“</StyledQuoteTop>
 					{t('quote')}
@@ -19,39 +35,40 @@ export const Quote: FC = () => {
 	);
 };
 
+const StyledBox = styled.div`
+	width: 91px;
+	height: 91px;
+	display: block;
+	top: 50%;
+	transform: translateY(-50%);
+	right: -247px;
+	border: 1px solid ${({ theme }) => theme.color.gray};
+
+	position: absolute;
+
+	@media (max-width: 1528px) {
+		right: -107px;
+	}
+	@media (max-width: 1233px) {
+		right: -47px;
+	}
+	@media (max-width: 1144px) {
+		display: none;
+	}
+`;
+
 const StyledQuote = styled.section`
 	display: flex;
 	justify-content: center;
 	margin-top: 112px;
 	position: relative;
-	&::after {
-		content: '';
-		width: 91px;
-		height: 91px;
-		display: block;
-		top: 50%;
-		transform: translateY(-50%);
-		right: -247px;
-		border: 1px solid ${({ theme }) => theme.color.gray};
 
-		position: absolute;
-
-		@media (max-width: 1528px) {
-			right: -107px;
-		}
-		@media (max-width: 1233px) {
-			right: -47px;
-		}
-		@media (max-width: 1144px) {
-			display: none;
-		}
-	}
 	@media (max-width: 1144px) {
 		margin-top: 44px;
 	}
 `;
 
-const StyledQuoteContainer = styled.div`
+const StyledQuoteContainer = styled(motion.div)`
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
@@ -83,7 +100,7 @@ const StyledQuoteTop = styled.span`
 	left: 11px;
 	top: 10px;
 	z-index: 11;
-	color: ${({ theme }) => theme.color.gray};
+	color: ${({ theme }) => theme.color.green};
 	font-size: 85px;
 	&::after {
 		content: '';
@@ -101,7 +118,7 @@ const StyledQuoteBottom = styled.span`
 	bottom: -40px;
 	right: 10px;
 	z-index: 11;
-	color: ${({ theme }) => theme.color.gray};
+	color: ${({ theme }) => theme.color.green};
 	font-size: 85px;
 	&::after {
 		content: '';

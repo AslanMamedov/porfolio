@@ -1,10 +1,11 @@
 import { StrictMode, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 
 import { GlobalStyle, router, theme } from 'config/index.ts';
 import './18n.ts';
+import { Loader } from 'components/Loader.tsx';
 
 interface ITheme {
 	[key: string]: any;
@@ -17,7 +18,7 @@ const themes: ITheme = {
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 	<StrictMode>
-		<Suspense fallback={<div>Loading...</div>}>
+		<Suspense fallback={<Loader />}>
 			<ThemeProvider theme={themes}>
 				<RouterProvider router={router} />
 				<GlobalStyle />

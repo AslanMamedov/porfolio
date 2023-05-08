@@ -2,18 +2,6 @@ import { FC, useMemo } from 'react';
 import { PortfolioCard, PortfolioCardProps } from './PortfolioCard';
 import styled from 'styled-components';
 
-const variants = {
-	hidden: {
-		opacity: 0,
-	},
-	visible: (i: number) => ({
-		opacity: 1,
-		transition: {
-			delay: i * 0.3,
-		},
-	}),
-};
-
 export const ProjectsLists: FC = () => {
 	const porfolios = useMemo<PortfolioCardProps[]>(
 		() => [
@@ -26,7 +14,8 @@ export const ProjectsLists: FC = () => {
 					'React-router-dom,',
 					'Styled-components,',
 					'i18n,',
-					'React-icons',
+					'React-icons,',
+					'Framer Motion,',
 					'React-helmet',
 				],
 				title: 'Portfolio',
@@ -108,10 +97,8 @@ export const ProjectsLists: FC = () => {
 			{porfolios.length &&
 				porfolios.map((porfolio, index) => (
 					<PortfolioCard
-						initial="hidden"
-						animate="visible"
-						variants={variants}
-						custom={index + 1}
+			
+				
 						key={index}
 						{...porfolio}
 					/>

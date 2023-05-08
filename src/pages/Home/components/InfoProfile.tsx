@@ -66,6 +66,8 @@ const StyledInfoTitle = styled(motion.div)`
 	font-weight: 600;
 	font-size: 32px;
 	line-height: 42px;
+	margin-bottom: 31px;
+
 	@media (max-width: 1144px) {
 		text-align: center;
 	}

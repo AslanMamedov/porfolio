@@ -13,10 +13,10 @@ export const About: FC = () => {
 					<Anchor to={'/about-me'} title={'read-more'} variant={'primary'} icon={'->'} />
 				</StyledLeftSideContent>
 			</StyledAboutLeftSide>
-			<DotsImage />
+			{/* <DotsImage />
 			<StyledDots>
 				<IconDots />
-			</StyledDots>
+			</StyledDots> */}
 		</StyledAboutContainer>
 	);
 };

@@ -10,7 +10,7 @@ export const AboutInfo: FC = () => {
 			<StyledAboutLeftSide>
 				<AboutDescription />
 			</StyledAboutLeftSide>
-			<DotsImage />
+			{/* <DotsImage /> */}
 		</StyledAboutContainer>
 	);
 };
