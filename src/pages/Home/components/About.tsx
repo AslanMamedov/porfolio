@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { AboutDescription, Anchor, DotsImage, Title } from 'components/index';
-import { IconDots } from 'icons/index';
+import { AboutDescription, Anchor, Title } from 'components/index';
+
 import styled from 'styled-components';
 
 export const About: FC = () => {
@@ -13,10 +13,6 @@ export const About: FC = () => {
 					<Anchor to={'/about-me'} title={'read-more'} variant={'primary'} icon={'->'} />
 				</StyledLeftSideContent>
 			</StyledAboutLeftSide>
-			{/* <DotsImage />
-			<StyledDots>
-				<IconDots />
-			</StyledDots> */}
 		</StyledAboutContainer>
 	);
 };
@@ -49,25 +45,4 @@ const StyledAboutLeftSide = styled.div`
 
 const StyledLeftSideContent = styled.div`
 	margin-top: 23px;
-`;
-
-const StyledDots = styled.span`
-	svg {
-		width: 103px;
-		height: 103px;
-	}
-	position: absolute;
-	right: -184px;
-	top: 308px;
-
-	@media (max-width: 1144px) {
-		display: none;
-	}
-
-	@media (max-width: 1528px) {
-		display: none;
-	}
-	@media (max-width: 1233px) {
-		display: none;
-	}
 `;

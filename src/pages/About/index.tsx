@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { NavigationTitle, Container } from 'components/index';
-import { AboutSkills, AboutFactors, AboutInfo } from './components';
+import { AboutSkills, AboutInfo } from './components';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+
 import { useTranslation } from 'react-i18next';
 const About: FC = () => {
 	const { t } = useTranslation();
@@ -32,7 +32,6 @@ const About: FC = () => {
 				<StyledSlillsContainer>
 					<AboutSkills />
 				</StyledSlillsContainer>
-				{/* <AboutFactors /> */}
 			</StyledWorsHeader>
 		</Container>
 	);

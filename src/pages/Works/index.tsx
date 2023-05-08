@@ -4,7 +4,6 @@ import { CompleteProjects, SmallProjects } from './components';
 import { PortfolioCardProps } from 'components/PortfolioCard';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 export const MiniProjects = createContext<PortfolioCardProps[]>([]);
 

@@ -4,7 +4,6 @@ import { IconInlineDots } from 'icons/index';
 import { Content, Media } from './components';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 const Contacts: FC = () => {
 	const { t } = useTranslation();

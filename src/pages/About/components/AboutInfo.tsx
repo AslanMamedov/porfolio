@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { AboutDescription, DotsImage } from 'components/index';
+import { AboutDescription, } from 'components/index';
 import { IconInlineDots } from 'icons/index';
 import styled from 'styled-components';
 
@@ -10,7 +10,7 @@ export const AboutInfo: FC = () => {
 			<StyledAboutLeftSide>
 				<AboutDescription />
 			</StyledAboutLeftSide>
-			{/* <DotsImage /> */}
+
 		</StyledAboutContainer>
 	);
 };
