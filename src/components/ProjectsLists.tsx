@@ -20,7 +20,7 @@ export const ProjectsLists: FC = () => {
 				],
 				title: 'Portfolio',
 				linkCode: 'https://github.com/AslanMamedov/porfolio',
-				linkDemo: '/works',
+				linkDemo: 'https://porfolio-beige.vercel.app/works',
 			},
 			{
 				description: 'Сайт для оформления  кредитов',
