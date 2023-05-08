@@ -2,13 +2,13 @@ import { FC } from 'react';
 import { InfoText } from 'components/InfoText';
 import { IconDots, IconFigure } from 'icons/index';
 import styled from 'styled-components';
-
+import imageSrc from './Image.png';
 export const ImageProfile: FC = () => {
 	return (
 		<StyledRightSide className="right">
 			<StyledImageContainer className="image-container">
 				<StyledIconFigure />
-				<StyledImage src="./Image.png" alt="Aslan" />
+				<StyledImage src={imageSrc} alt="Aslan" />
 				<StyledIconDots />
 			</StyledImageContainer>
 			<StyledTextInfo>
