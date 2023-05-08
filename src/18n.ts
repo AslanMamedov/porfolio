@@ -4,8 +4,8 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 
 const config = {
-	fallbackLng: localStorage.getItem('i18nextLng'),
-	debug: false,
+	lng: 'en',
+	fallbackLng: localStorage.getItem('i18nextLng') || 'en',
 	detection: {
 		order: ['queryString', 'cookie'] as const,
 		cache: ['cookie'] as const,
@@ -13,6 +13,7 @@ const config = {
 	interpolation: {
 		escapeValue: false,
 	},
+	debug: true,
 };
 
 type Config = typeof config;
