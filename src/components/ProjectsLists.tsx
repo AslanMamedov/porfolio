@@ -1,13 +1,13 @@
 import { FC, useMemo } from 'react';
 import { PortfolioCard, PortfolioCardProps } from './PortfolioCard';
 import styled from 'styled-components';
-
+import profolioSrc from '../../public/images/porfolio/porfolio.png';
 export const ProjectsLists: FC = () => {
 	const porfolios = useMemo<PortfolioCardProps[]>(
 		() => [
 			{
 				description: 'Сайт портфолио',
-				imgSrc: '/public/images/porfolio/porfolio.png',
+				imgSrc: profolioSrc,
 				tools: [
 					'React,',
 					'TypeScript,',
