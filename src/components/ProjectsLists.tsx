@@ -7,7 +7,7 @@ export const ProjectsLists: FC = () => {
 		() => [
 			{
 				description: 'Сайт портфолио',
-				imgSrc: '/src/assets/images/porfolio/porfolio.png',
+				imgSrc: '/public/images/porfolio/porfolio.png',
 				tools: [
 					'React,',
 					'TypeScript,',
@@ -24,7 +24,7 @@ export const ProjectsLists: FC = () => {
 			},
 			{
 				description: 'Сайт для оформления  кредитов',
-				imgSrc: '/src/assets/images/porfolio/bank.png',
+				imgSrc: '/public/images/porfolio/bank.png',
 				tools: [
 					'React,',
 					'TypeScript,',
@@ -42,49 +42,49 @@ export const ProjectsLists: FC = () => {
 			},
 			{
 				description: 'Сайт для заказов различный видом фотографий',
-				imgSrc: '/src/assets/images/porfolio/pictures.png',
+				imgSrc: '/public/images/porfolio/pictures.png',
 				tools: ['HTML,', 'JavaScript,', 'LESS,', 'PHP,', 'Gulp'],
 				title: 'Picture',
 				linkCode: 'https://github.com/AslanMamedov/Picture',
 			},
 			{
 				description: 'Сайт для заказов различный видом окон',
-				imgSrc: '/src/assets/images/porfolio/window.png',
+				imgSrc: '/public/images/porfolio/window.png',
 				tools: ['HTML,', 'JavaScript,', 'SCSS,', 'PHP,', 'Gulp'],
 				title: 'Window',
 				linkCode: 'https://github.com/AslanMamedov/Windows',
 			},
 			{
 				description: 'Сайт для заказов различный видом аксессуаров для спорта',
-				imgSrc: '/src/assets/images/porfolio/pulse.png',
+				imgSrc: '/public/images/porfolio/pulse.png',
 				tools: ['HTML,', 'JavaScript,', 'SCSS,', 'PHP,', 'Gulp'],
 				title: 'Pulse',
 				linkCode: 'https://github.com/AslanMamedov/Pulse',
 			},
 			{
 				description: 'Сайт для фитнес диеты',
-				imgSrc: '/src/assets/images/porfolio/food.png',
+				imgSrc: '/public/images/porfolio/food.png',
 				tools: ['HTML,', 'JavaScript,', 'SCSS,', 'PHP,', 'JSON-server'],
 				title: 'Food',
 				linkCode: 'https://github.com/AslanMamedov/Project-Food',
 			},
 			{
 				description: 'Сайт визитка',
-				imgSrc: '/src/assets/images/porfolio/wordpress.png',
+				imgSrc: '/public/images/porfolio/wordpress.png',
 				tools: ['HTML,', 'JavaScript,', 'SCSS,', 'GSAP,', 'БЭМ,', 'Gulp'],
 				title: 'Wordpress',
 				linkCode: 'https://github.com/AslanMamedov/Wordpress',
 			},
 			{
 				description: 'Сайт визитка',
-				imgSrc: '/src/assets/images/porfolio/uber.png',
+				imgSrc: '/public/images/porfolio/uber.png',
 				tools: ['HTML,', 'JavaScript,', 'SCSS,', 'Gulp'],
 				title: 'Uber',
 				linkCode: 'https://github.com/AslanMamedov/Uber',
 			},
 			{
 				description: 'Сайт визитка',
-				imgSrc: '/src/assets/images/porfolio/loan.png',
+				imgSrc: '/public/images/porfolio/loan.png',
 				tools: ['HTML,', 'JavaScript,', 'SCSS,', 'Gulp'],
 				title: 'Loan',
 				linkCode: 'https://github.com/AslanMamedov/Loan',
@@ -94,15 +94,7 @@ export const ProjectsLists: FC = () => {
 	);
 	return (
 		<StyledCardContainer>
-			{porfolios.length &&
-				porfolios.map((porfolio, index) => (
-					<PortfolioCard
-			
-				
-						key={index}
-						{...porfolio}
-					/>
-				))}
+			{porfolios.length && porfolios.map((porfolio, index) => <PortfolioCard key={index} {...porfolio} />)}
 		</StyledCardContainer>
 	);
 };

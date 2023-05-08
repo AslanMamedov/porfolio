@@ -8,7 +8,7 @@ export const ImageProfile: FC = () => {
 		<StyledRightSide className="right">
 			<StyledImageContainer className="image-container">
 				<StyledIconFigure />
-				<StyledImage src="/src/assets/images/Image.png" alt="" />
+				<StyledImage src="/public/images/Image.png" alt="Aslan" />
 				<StyledIconDots />
 			</StyledImageContainer>
 			<StyledTextInfo>
@@ -90,8 +90,6 @@ const StyledIconDots = styled(IconDots)`
 	}
 `;
 
-
-
 const StyledTextInfo = styled.div`
 	margin-right: 19px;
 	width: 402px;
@@ -99,6 +97,5 @@ const StyledTextInfo = styled.div`
 		margin-right: 0px;
 		width: 354px;
 		padding: 0 15px;
-
 	}
 `;
