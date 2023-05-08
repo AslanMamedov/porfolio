@@ -8,7 +8,7 @@ export const ImageProfile: FC = () => {
 		<StyledRightSide className="right">
 			<StyledImageContainer className="image-container">
 				<StyledIconFigure />
-				<StyledImage src="/public/images/Image.png" alt="Aslan" />
+				<StyledImage src="./Image.png" alt="Aslan" />
 				<StyledIconDots />
 			</StyledImageContainer>
 			<StyledTextInfo>
