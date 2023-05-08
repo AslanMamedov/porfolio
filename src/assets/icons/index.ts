@@ -1,9 +1,5 @@
 export { ReactComponent as IconArrow } from './arrow.svg';
 
-// Logo
-
-export { ReactComponent as IconLogo } from './logo.svg';
-
 // Figure
 export { ReactComponent as IconDots } from './dots.svg';
 export { ReactComponent as IconInlineDots } from './inline-dots.svg';

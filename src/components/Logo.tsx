@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { IconLogo } from 'icons/index';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
@@ -7,7 +6,6 @@ export const Logo: FC = () => {
 	const { t } = useTranslation();
 	return (
 		<StyledLogo className="logo">
-			{/* <IconLogo className="logo__icon" /> */}
 			<StyledTitle className="logo__text">{t('name')}</StyledTitle>
 		</StyledLogo>
 	);
