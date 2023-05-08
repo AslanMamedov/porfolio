@@ -15,63 +15,63 @@ const Works: FC = () => {
 				description: 'Мини проигрыватель',
 				title: 'Mini circle player',
 				tools: ['React,', 'TypeScript,', 'SCSS,', 'React-icons,', 'Roundy'],
-				imgSrc: '/public/images/porfolio/player.png',
+				imgSrc: './images/porfolio/player.png',
 				linkCode: 'https://github.com/AslanMamedov/circle-player',
 			},
 			{
 				description: 'Слайдер',
 				title: 'Slider',
 				tools: ['HTML,', 'CSS,', 'JavaScript'],
-				imgSrc: '/public/images/porfolio/slider.png',
+				imgSrc: './images/porfolio/slider.png',
 				linkCode: 'https://github.com/AslanMamedov/Marathon/tree/master/Slider',
 			},
 			{
 				description: 'Слайдер',
 				title: 'Slider',
 				tools: ['HTML,', 'CSS,', 'JavaScript'],
-				imgSrc: '/public/images/porfolio/slider-car.png',
+				imgSrc: './images/porfolio/slider-car.png',
 				linkCode: 'https://github.com/AslanMamedov/Marathon/tree/master/Card',
 			},
 			{
 				description: 'Мини игра',
 				title: 'Mini game',
 				tools: ['HTML,', 'CSS,', 'JavaScript'],
-				imgSrc: '/public/images/porfolio/aim.png',
+				imgSrc: './images/porfolio/aim.png',
 				linkCode: 'https://github.com/AslanMamedov/Marathon/tree/master/Game',
 			},
 			{
 				description: 'Мини игра',
 				title: 'Mini game',
 				tools: ['HTML,', 'CSS,', 'JavaScript'],
-				imgSrc: '/public/images/porfolio/hover.png',
+				imgSrc: './images/porfolio/hover.png',
 				linkCode: 'https://github.com/AslanMamedov/Marathon/tree/master/Board',
 			},
 			{
 				description: 'Мини игра',
 				title: 'Drag Drop',
 				tools: ['HTML,', 'CSS,', 'JavaScript'],
-				imgSrc: '/public/images/porfolio/drag-drop.png',
+				imgSrc: './images/porfolio/drag-drop.png',
 				linkCode: 'https://github.com/AslanMamedov/Marathon/tree/master/Drag%26Drop',
 			},
 			{
 				description: 'Эквалайзер',
 				title: 'Audi equalizer',
 				tools: ['HTML,', 'CSS,', 'JavaScript'],
-				imgSrc: '/public/images/porfolio/audio.png',
+				imgSrc: './images/porfolio/audio.png',
 				linkCode: 'https://github.com/AslanMamedov/mediastream',
 			},
 			{
 				description: 'Рейтинг',
 				title: 'Star rating',
 				tools: ['HTML,', 'CSS,', 'JavaScript'],
-				imgSrc: '/public/images/porfolio/rating.png',
+				imgSrc: './images/porfolio/rating.png',
 				linkCode: 'https://github.com/AslanMamedov/miniProjects/tree/master/Star',
 			},
 			{
 				description: 'Прогресс скрола',
 				title: 'Scroll progress',
 				tools: ['HTML,', 'CSS,', 'JavaScript'],
-				imgSrc: '/public/images/porfolio/scroll.png',
+				imgSrc: './images/porfolio/scroll.png',
 				linkCode: 'https://github.com/AslanMamedov/miniProjects/tree/master/ScrollTop',
 			},
 		],
@@ -96,7 +96,7 @@ const Works: FC = () => {
 				}}
 				exit={{ opacity: 0 }}
 			>
-				<StyledWorsHeader >
+				<StyledWorsHeader>
 					<NavigationTitle subtitle={'wors-subtitle'} />
 					<CompleteProjects />
 					{!!miniPropjects.length && <SmallProjects />}

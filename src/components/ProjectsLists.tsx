@@ -1,13 +1,13 @@
 import { FC, useMemo } from 'react';
 import { PortfolioCard, PortfolioCardProps } from './PortfolioCard';
 import styled from 'styled-components';
-import profolioSrc from '../../public/images/porfolio/porfolio.png';
+
 export const ProjectsLists: FC = () => {
 	const porfolios = useMemo<PortfolioCardProps[]>(
 		() => [
 			{
 				description: 'Сайт портфолио',
-				imgSrc: profolioSrc,
+				imgSrc: './images/porfolio/porfolio.png',
 				tools: [
 					'React,',
 					'TypeScript,',
@@ -24,7 +24,7 @@ export const ProjectsLists: FC = () => {
 			},
 			{
 				description: 'Сайт для оформления  кредитов',
-				imgSrc: '/public/images/porfolio/bank.png',
+				imgSrc: './images/porfolio/bank.png',
 				tools: [
 					'React,',
 					'TypeScript,',
@@ -42,49 +42,49 @@ export const ProjectsLists: FC = () => {
 			},
 			{
 				description: 'Сайт для заказов различный видом фотографий',
-				imgSrc: '/public/images/porfolio/pictures.png',
+				imgSrc: './images/porfolio/pictures.png',
 				tools: ['HTML,', 'JavaScript,', 'LESS,', 'PHP,', 'Gulp'],
 				title: 'Picture',
 				linkCode: 'https://github.com/AslanMamedov/Picture',
 			},
 			{
 				description: 'Сайт для заказов различный видом окон',
-				imgSrc: '/public/images/porfolio/window.png',
+				imgSrc: './images/porfolio/window.png',
 				tools: ['HTML,', 'JavaScript,', 'SCSS,', 'PHP,', 'Gulp'],
 				title: 'Window',
 				linkCode: 'https://github.com/AslanMamedov/Windows',
 			},
 			{
 				description: 'Сайт для заказов различный видом аксессуаров для спорта',
-				imgSrc: '/public/images/porfolio/pulse.png',
+				imgSrc: './images/porfolio/pulse.png',
 				tools: ['HTML,', 'JavaScript,', 'SCSS,', 'PHP,', 'Gulp'],
 				title: 'Pulse',
 				linkCode: 'https://github.com/AslanMamedov/Pulse',
 			},
 			{
 				description: 'Сайт для фитнес диеты',
-				imgSrc: '/public/images/porfolio/food.png',
+				imgSrc: './images/porfolio/food.png',
 				tools: ['HTML,', 'JavaScript,', 'SCSS,', 'PHP,', 'JSON-server'],
 				title: 'Food',
 				linkCode: 'https://github.com/AslanMamedov/Project-Food',
 			},
 			{
 				description: 'Сайт визитка',
-				imgSrc: '/public/images/porfolio/wordpress.png',
+				imgSrc: './images/porfolio/wordpress.png',
 				tools: ['HTML,', 'JavaScript,', 'SCSS,', 'GSAP,', 'БЭМ,', 'Gulp'],
 				title: 'Wordpress',
 				linkCode: 'https://github.com/AslanMamedov/Wordpress',
 			},
 			{
 				description: 'Сайт визитка',
-				imgSrc: '/public/images/porfolio/uber.png',
+				imgSrc: './images/porfolio/uber.png',
 				tools: ['HTML,', 'JavaScript,', 'SCSS,', 'Gulp'],
 				title: 'Uber',
 				linkCode: 'https://github.com/AslanMamedov/Uber',
 			},
 			{
 				description: 'Сайт визитка',
-				imgSrc: '/public/images/porfolio/loan.png',
+				imgSrc: './images/porfolio/loan.png',
 				tools: ['HTML,', 'JavaScript,', 'SCSS,', 'Gulp'],
 				title: 'Loan',
 				linkCode: 'https://github.com/AslanMamedov/Loan',
