@@ -6,6 +6,14 @@ export const ProjectsLists: FC = () => {
 	const porfolios = useMemo<PortfolioCardProps[]>(
 		() => [
 			{
+				description: 'Тестовое задание',
+				imgSrc: './images/porfolio/pilot-project.png',
+				tools: ['React,', 'TypeScript,', 'Ant', 'ChartJS', 'TabulatorJS', 'Openlayers'],
+				title: 'Pilot project',
+				linkCode: 'https://github.com/AslanMamedov/pilot-project-test',
+				linkDemo: 'https://pilot-project-test.vercel.app/',
+			},
+			{
 				description: 'Сайт портфолио',
 				imgSrc: './images/porfolio/porfolio.png',
 				tools: [
@@ -23,7 +31,7 @@ export const ProjectsLists: FC = () => {
 				linkDemo: 'https://porfolio-beige.vercel.app/',
 			},
 			{
-				description: 'Сайт для оформления  кредитов',
+				description: 'Тестовое задание',
 				imgSrc: './images/porfolio/bank.png',
 				tools: [
 					'React,',
