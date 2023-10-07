@@ -8,7 +8,7 @@ export const ProjectsLists: FC = () => {
 			{
 				description: 'Тестовое задание',
 				imgSrc: './images/porfolio/pilot-project.png',
-				tools: ['React,', 'TypeScript,', 'Ant', 'ChartJS', 'TabulatorJS', 'Openlayers'],
+				tools: ['React,', 'TypeScript,', 'Ant Design,', 'ChartJS,', 'TabulatorJS,', 'Openlayers'],
 				title: 'Pilot project',
 				linkCode: 'https://github.com/AslanMamedov/pilot-project-test',
 				linkDemo: 'https://pilot-project-test.vercel.app/',
